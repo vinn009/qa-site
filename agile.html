@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agile and Scrum for QA – QaShift</title>
+  <meta name="description" content="Understand Agile and Scrum methodologies from a QA perspective. Learn sprint workflows, ceremonies, roles, and QA responsibilities in Agile teams." />
+  <meta name="keywords" content="agile for QA, scrum overview, sprint testing, agile ceremonies, QA in agile, scrum roles, agile methodology" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+   header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+	 nav {
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .footer {
+        font-size: 0.8rem;
+      }
+      .footer a {
+        display: inline-block;
+        margin: 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Agile & Scrum Overview</h1>
+ <nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </header>
+
+  <main>
+  <h3>What is Agile?</h3>
+  <p>
+    Agile is a mindset and a set of principles to build software in small, frequent increments with strong collaboration and rapid feedback. It focuses on adaptability, quality, and customer involvement.
+  </p>
+
+  <h3>Why is Agile Important?</h3>
+  <ul>
+    <li>Responds quickly to customer feedback</li>
+    <li>Helps teams adapt to changing business needs</li>
+    <li>Increases transparency and visibility of work</li>
+    <li>Reduces risk by delivering software faster in small increments</li>
+  </ul>
+
+  <h3>The 12 Principles of Agile</h3>
+  <ul>
+    <li>Satisfy the customer through early and continuous delivery</li>
+    <li>Welcome changing requirements, even late in development</li>
+    <li>Deliver working software frequently (weeks rather than months)</li>
+    <li>Close daily collaboration between business people and developers</li>
+    <li>Build projects around motivated individuals</li>
+    <li>Face-to-face conversation is the best form of communication</li>
+    <li>Working software is the primary measure of progress</li>
+    <li>Sustainable development pace is maintained indefinitely</li>
+    <li>Continuous attention to technical excellence and good design</li>
+    <li>Simplicity is essential</li>
+    <li>Self-organizing teams produce the best results</li>
+    <li>Regularly reflect and adjust behavior to become more effective</li>
+  </ul>
+  
+  <h4>Agile Manifesto</h4>
+  <p>The Agile Manifesto emphasizes 4 values:</p>
+  <ul>
+    <li>Individuals and interactions over processes and tools</li>
+    <li>Working software over comprehensive documentation</li>
+    <li>Customer collaboration over contract negotiation</li>
+    <li>Responding to change over following a plan</li>
+  </ul>
+  <p>It also lists 12 principles that guide Agile teams toward quality, delivery, and adaptability.</p>
+
+  <h4>Waterfall vs. Agile</h4>
+  <p>Waterfall is linear and sequential, suitable for fixed-scope projects. Agile is iterative and incremental, ideal for projects needing flexibility. Agile promotes frequent reassessments and adaptations.</p>
+
+  <h4>Benefits of Agile</h4>
+  <ul>
+    <li>Faster delivery of value</li>
+    <li>Improved product quality</li>
+    <li>Greater transparency</li>
+    <li>Customer satisfaction through early feedback</li>
+    <li>Better team collaboration and motivation</li>
+  </ul>
+
+  <h4>Agile Terminology</h4>
+  <ul>
+    <li>Epic: A large body of work that can be broken down into stories</li>
+    <li>User Story: A requirement told from the user's perspective</li>
+    <li>Backlog: A prioritized list of work</li>
+    <li>Sprint: A time-boxed development cycle</li>
+    <li>Increment: A potentially shippable product piece</li>
+  </ul>
+
+  <h3>Agile Frameworks Overview</h3>
+  <p>Scrum: A widely used Agile framework with fixed-length iterations (sprints), well-defined roles, and ceremonies.<br>
+     Kanban: Visual task management that limits work-in-progress and focuses on flow.<br>
+     XP (Extreme Programming): Emphasizes technical excellence through pair programming, test-first development.<br>
+     Lean: Derived from manufacturing, focuses on waste reduction and continuous flow.<br>
+     SAFe (Scaled Agile Framework): A structured approach to scale Agile across large enterprises.</p>
+
+  <h3>Agile Roles</h3>
+  <ul>
+    <li>Scrum Master: Facilitates the Scrum process, removes impediments, and shields the team from distractions.</li>
+    <li>Product Owner: Owns the product backlog and ensures the right work is being prioritized for value delivery.</li>
+    <li>Development Team: Cross-functional professionals who deliver increments of work.</li>
+    <li>Stakeholders: Internal or external individuals invested in the outcome of the product.</li>
+    <li>Agile Coach: Guides teams and organizations in their Agile adoption and practices.</li>
+  </ul>
+
+  <h3>Intermediate Agile Topics</h2>
+  <h3>Scrum Deep Dive</h3>
+  <p>Scrum emphasizes short iterations called sprints. Events include:</p>
+  <ul>
+    <li>Sprint Planning: Team selects work for the sprint based on priorities.</li>
+    <li>Daily Standup: Short daily meeting to align on progress and obstacles.</li>
+    <li>Sprint Review: Team demonstrates what was built during the sprint.</li>
+    <li>Sprint Retrospective: Reflect on the sprint to improve future performance.</li>
+  </ul>
+  <p>Artifacts include:</p>
+  <ul>
+    <li>Product Backlog: Prioritized work maintained by Product Owner.</li>
+    <li>Sprint Backlog: Tasks planned for the current sprint.</li>
+    <li>Increment: Completed product that adds value.</li>
+  </ul>
+  <p>Definition of Done (DoD) defines when work is complete. Acceptance Criteria specify conditions for each story.</p>
+  <p>Velocity: Measurement of work completed each sprint. Burndown Chart: Visual progress toward sprint goals.</p>
+
+  <h3>Kanban Concepts</h3>
+  <ul>
+    <li>WIP Limits: Restrict the number of tasks in each workflow stage to prevent overload.</li>
+    <li>Pull System: Team pulls tasks when ready, promoting flow and self-organization.</li>
+    <li>Kanban Board: Visual tool to track task status (To Do, In Progress, Done).</li>
+  </ul>
+
+  <h3>Agile Estimation & Planning</h3>
+  <ul>
+    <li>Story Points: Relative size/effort of a user story, typically based on Fibonacci (1,2,3,5,...).</li>
+    <li>Planning Poker: Collaborative estimation using cards to promote consensus.</li>
+    <li>Sprint Planning: Meeting to define work for the upcoming sprint.</li>
+    <li>Release Planning: Forecasting features and timelines for product release.</li>
+  </ul>
+
+  <h3>Agile Ceremonies & Meetings</h3>
+  <ul>
+    <li>Daily Stand-ups: Focus on what was done, what will be done, blockers.</li>
+    <li>Sprint Demos: Showcasing working software to stakeholders.</li>
+    <li>Retrospectives: Inspect and adapt process, people, and tools.</li>
+    <li>Backlog Grooming: Regularly refine the backlog to ensure items are clear and prioritized.</li>
+  </ul>
+
+  <h3>Advanced Agile Topics</h2>
+  <h3>Scaled Agile</h3>
+  <ul>
+    <li>SAFe: Combines Lean and Agile for large enterprises with multiple teams.</li>
+    <li>LeSS: Simplified scaling using multiple Scrum teams.</li>
+    <li>Nexus: Coordination of 3–9 Scrum teams with integration roles/events.</li>
+    <li>Spotify Model: Squad-based model emphasizing autonomy and alignment.</li>
+  </ul>
+
+  <h3>Metrics & KPIs</h3>
+  <ul>
+    <li>Lead Time: Time taken from request to delivery.</li>
+    <li>Cycle Time: Time taken to complete a task once started.</li>
+    <li>Sprint Velocity: Measure of team output per sprint.</li>
+    <li>Burnup/Burndown Charts: Visual indicators of progress.</li>
+    <li>Team Happiness Index: Indicator of team morale.</li>
+  </ul>
+
+  <h3>Agile Testing & QA</h3>
+  <ul>
+    <li>QA Role: Shift-left mindset, involved early in story refinement and test planning.</li>
+    <li>Test Automation: Run automated tests as part of CI/CD pipeline.</li>
+    <li>BDD/TDD/ATDD: Practices to ensure code correctness and collaboration.</li>
+    <li>Agile Test Pyramid: Base of unit tests, middle of integration, top of UI tests.</li>
+  </ul>
+
+  <h3>Agile Tools</h3>
+  <ul>
+    <li>JIRA: Manage backlogs, sprints, boards, epics, reports.</li>
+    <li>Confluence: Centralized documentation and collaboration tool.</li>
+    <li>Azure DevOps / Rally / Trello: Other tools to plan, track, and manage Agile work.</li>
+  </ul>
+
+  <h3>Agile Mindset & Culture</h3>
+  <ul>
+    <li>Servant Leadership: Leaders who support and empower their teams.</li>
+    <li>Continuous Improvement (Kaizen): Small, incremental changes for better outcomes.</li>
+    <li>Psychological Safety: Team members feel safe to speak up and take risks.</li>
+    <li>Agile Anti-Patterns: Common practices that undermine Agile principles (e.g., micromanagement).</li>
+  </ul>
+
+  <h3>Certifications & Career</h2>
+  <ul>
+    <li>Certified Scrum Master (CSM): Credential from Scrum Alliance for Scrum leaders.</li>
+    <li>PMI-ACP: PMI’s Agile Certified Practitioner credential.</li>
+    <li>SAFe Agilist: Certification for leading scaled Agile.</li>
+    <li>Scrum.org PSM: Professional Scrum Master I, II, III certifications.</li>
+    <li>ICP-ACC: Agile Coaching certification from ICAgile.</li>
+  </ul>
+
+  <h3>What is Scrum?</h3>
+  <p>
+    Scrum is an Agile framework using short iterations (sprints) to deliver working software. It defines clear roles, ceremonies, and artifacts to help teams stay organized and collaborative.
+  </p>
+
+  <h3>Scrum Roles</h3>
+  <ul>
+    <li>Scrum Master: Facilitates the process, removes blockers, and mentors the team on Scrum practices.</li>
+    <li>Product Owner: Defines priorities and manages the product backlog.</li>
+    <li>Development Team: Builds and tests the product increment.</li>
+  </ul>
+
+  <h3>Scrum Ceremonies Explained with Examples</h3>
+  <ul>
+    <li>
+      Daily Stand-Up: 
+      15-minute daily meeting where team members answer:
+      <ul>
+        <li>What did I do yesterday?</li>
+        <li>What will I do today?</li>
+        <li>Are there any blockers?</li>
+      </ul>
+      <em>Example:</em> “Yesterday I fixed login issue; today I’ll work on checkout tests; no blockers.”
+    </li>
+    <li>
+      Sprint Planning: 
+      Define what stories will be delivered in the next sprint.
+      <br/>
+      <em>Example:</em> Selecting 5 user stories from the backlog and breaking them into tasks.
+    </li>
+    <li>
+      Backlog Refinement: 
+      Ongoing session to clarify and estimate backlog items.
+      <br/>
+      <em>Example:</em> Splitting a big story about “Payment Gateway” into 3 smaller stories.
+    </li>
+    <li>
+      Sprint Review: 
+      Demonstrate completed work to stakeholders.
+      <br/>
+      <em>Example:</em> Showing a working demo of the new checkout flow to the product owner.
+    </li>
+    <li>
+      Sprint Retrospective: 
+      Discuss what went well, what didn’t, and how to improve.
+      <br/>
+      <em>Example:</em> Team agrees that code review delays should be improved next sprint.
+    </li>
+  </ul>
+
+  <h3>Scrum Master Daily Role in Detail</h3>
+  <ul>
+    <li>Facilitate the daily stand-up and keep it focused</li>
+    <li>Support sprint planning and help clarify priorities</li>
+    <li>Coordinate backlog refinement meetings with the Product Owner</li>
+    <li>Protect the team from outside interruptions</li>
+    <li>Track sprint metrics and help remove blockers</li>
+    <li>Coach team members on Agile practices</li>
+    <li>Organize sprint reviews and retrospectives</li>
+  </ul>
+
+  <h3>Other Agile Frameworks</h3>
+  <ul>
+    <li>Kanban: Continuous flow, WIP limits, visual boards</li>
+    <li>SAFe (Scaled Agile Framework): Scaling Agile to enterprise teams</li>
+    <li>Extreme Programming (XP): Technical best practices for rapid software delivery</li>
+  </ul>
+
+  <h3>Pro Tips for Beginners</h3>
+  <ul>
+    <li>Participate fully in all ceremonies</li>
+    <li>Don’t be afraid to ask questions</li>
+    <li>Keep user stories small, testable, and clear</li>
+    <li>Remember: Scrum is about teamwork, not just a checklist</li>
+    <li>Make retrospectives honest and constructive</li>
+  </ul>
+
+  <h3>Common Mistakes to Avoid</h3>
+  <ul>
+    <li>Using Scrum as a status update rather than collaboration</li>
+    <li>Ignoring the product backlog until sprint planning day</li>
+    <li>Having unclear acceptance criteria for stories</li>
+    <li>Skipping retrospectives and reviews</li>
+    <li>Letting daily stand-ups run too long</li>
+  </ul>
+
+  </main>
+<div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a> |
+  <a href="cookies.html">Cookies</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cypress Automation Testing Guide – QaShift</title>
+  <meta name="description" content="Learn Cypress for fast, reliable end-to-end testing. Covers installation, writing tests, handling elements, assertions, and integration with CI tools." />
+  <meta name="keywords" content="cypress testing, cypress automation, end-to-end testing, cypress for QA, JavaScript testing, frontend testing, Cypress CI" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+   header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+	 nav {
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .footer {
+        font-size: 0.8rem;
+      }
+      .footer a {
+        display: inline-block;
+        margin: 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cypress Automation Testing</h1>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </header>
+
+  <main>
+    <section>
+      <h3>What is Cypress?</h3>
+      <p>
+        Cypress is a modern front-end testing tool built for the web. It is fast,
+        reliable, and easy to set up. It enables developers and QA to write
+        automated tests for UI and API with real-time reloads and rich debugging.
+      </p>
+    </section>
+
+    <section>
+      <h3>Why Use Cypress?</h3>
+      <ul>
+        <li>Fast test execution with real-time reloads</li>
+        <li>Great for modern JavaScript frameworks (React, Angular, Vue)</li>
+        <li>Built-in support for retries, waits, screenshots, and video recording</li>
+        <li>Works directly in the browser with no need for WebDriver</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Getting Started</h3>
+      <ul>
+        <li>Install via npm: <code>npm install cypress --save-dev</code></li>
+        <li>Open Cypress test runner: <code>npx cypress open</code></li>
+        <li>Tests are written in JavaScript or TypeScript</li>
+        <li>Test files are placed inside the <code>cypress/e2e/</code> directory</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Common Cypress Commands</h3>
+      <ul>
+        <li><code>cy.visit()</code> – Navigate to a page</li>
+        <li><code>cy.get()</code> – Query DOM elements</li>
+        <li><code>cy.contains()</code> – Match text in DOM</li>
+        <li><code>cy.intercept()</code> – Intercept API calls</li>
+        <li><code>cy.click()</code>, <code>cy.type()</code>, <code>cy.select()</code></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Pro Tips</h3>
+      <ul>
+        <li>Use <code>data-testid</code> for robust element selectors</li>
+        <li>Group similar tests with <code>describe()</code> and <code>it()</code></li>
+        <li>Integrate Cypress with GitHub Actions or Jenkins</li>
+        <li>Use Cypress Dashboard for debugging flaky tests</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Best Practices</h3>
+      <ul>
+        <li>Keep tests independent and atomic</li>
+        <li>Avoid relying on UI animations or time-based waits</li>
+        <li>Mock API responses where necessary</li>
+        <li>Use fixtures for test data</li>
+        <li>Clean up state before each test</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Recommended Certifications & Resources</h3>
+      <ul>
+        <li><a href="https://docs.cypress.io" target="_blank">Official Cypress Documentation</a></li>
+      </ul>
+    </section>
+  </main>
+  <div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a> |
+  <a href="cookies.html">Cookies</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Write Effective Test Cases – QaShift</title>
+  <meta name="description" content="Learn how to write clear, concise, and effective test cases. Includes formats, examples, tips, and QA best practices for beginners to advanced testers." />
+  <meta name="keywords" content="test case writing, QA test cases, test case examples, software testing techniques, test case format, test plan" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+  <style>
+    body {
+     font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+	  nav {
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.3rem;	
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .footer {
+        font-size: 0.8rem;
+      }
+      .footer a {
+        display: inline-block;
+        margin: 0.3rem;
+      }
+    }
+	
+	table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #e8f5e9;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+td:first-child {
+  font-weight: bold;
+  width: 25%;
+  background-color: #f9f9f9;
+}
+
+@media screen and (max-width: 500px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Test Case Writing </h1>
+  <nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </header>
+
+  <main>
+
+  <h3>What is a Test Case?</h3>
+  <p>
+    A <strong>test case</strong> is a documented set of actions, conditions, data, and expected results
+    designed to verify whether a particular feature or functionality of an application works as intended.
+    It acts like a blueprint to validate software behavior, ensuring it meets the requirements.
+  </p>
+
+  <h3>Importance of Test Cases</h3>
+  <ul>
+    <li>Ensure consistent, repeatable testing</li>
+    <li>Make it easier for anyone on the team to verify the same behavior</li>
+    <li>Reduce defects in production by validating requirements early</li>
+    <li>Support traceability (linking back to requirements or user stories)</li>
+    <li>Help new testers quickly understand how to test a feature</li>
+  </ul>
+
+  <h3>Format of a Good Test Case</h3>
+  <p>Typically, a test case includes these fields:</p>
+  <ul>
+    <li><strong>Test Case ID</strong>: Unique identifier</li>
+    <li><strong>Title</strong>: What this test is about</li>
+    <li><strong>Description</strong>: Brief explanation of the scenario</li>
+    <li><strong>Preconditions</strong>: Anything that must exist before you start</li>
+    <li><strong>Test Data</strong>: The inputs to use</li>
+    <li><strong>Test Steps</strong>: Step-by-step actions</li>
+    <li><strong>Expected Result</strong>: What the system should do</li>
+    <li><strong>Actual Result</strong>: (filled after execution)</li>
+    <li><strong>Status</strong>: Pass/Fail</li>
+    <li><strong>Remarks</strong>: Any observations</li>
+  </ul>
+
+  <h3>How to Write Simple Test Cases</h3>
+  <ul>
+    <li>Keep them <strong>clear and concise</strong></li>
+    <li>Use simple language, avoid ambiguity</li>
+    <li>Include only one verification point per test case if possible</li>
+    <li>Write reusable steps where possible</li>
+    <li>Add preconditions so testers know what to set up</li>
+    <li>Make sure the expected results are measurable and objective</li>
+  </ul>
+
+  <h3>Example Test Case</h3>
+  <p><strong>User Story:</strong> As a user, I want to be able to reset my password so I can regain access if I forget it.</p>
+
+  <table>
+    <tr><th>Field</th><th>Value</th></tr>
+    <tr><td>Test Case ID</td><td>TC-001</td></tr>
+    <tr><td>Title</td><td>Verify password reset with valid email</td></tr>
+    <tr><td>Description</td><td>User should receive reset email when requesting with registered email</td></tr>
+    <tr><td>Preconditions</td><td>User account exists with valid email</td></tr>
+    <tr><td>Test Data</td><td>user@example.com</td></tr>
+    <tr>
+      <td>Test Steps</td>
+      <td>
+        1. Go to forgot password screen<br>
+        2. Enter user@example.com<br>
+        3. Click submit
+      </td>
+    </tr>
+    <tr><td>Expected Result</td><td>Email sent with password reset link</td></tr>
+    <tr><td>Actual Result</td><td>(to be filled after test)</td></tr>
+    <tr><td>Status</td><td>Pass/Fail</td></tr>
+    <tr><td>Remarks</td><td>-</td></tr>
+  </table>
+
+  <h3>Pro Tips for Writing Test Cases</h3>
+  <ul>
+    <li>Always trace back to the user story or requirement</li>
+    <li>Use consistent terminology (e.g., avoid mixing “submit” vs. “save”)</li>
+    <li>Keep tests independent — one failing test should not block others</li>
+    <li>Think like the end user — test real scenarios</li>
+    <li>Prioritize critical business flows first</li>
+    <li>Add negative test cases (wrong password, invalid inputs, etc.)</li>
+  </ul>
+
+  <h3>How to Analyze User Stories to Create Test Cases</h3>
+  <ul>
+    <li>Read the user story carefully : Understand what is being asked</li>
+    <li>Identify acceptance criteria: Usually listed with the user story — these define success</li>
+    <li>Break down scenarios: Think of happy path and alternate/error flows</li>
+    <li>Use mind maps: Sketch test ideas around the story</li>
+    <li>Ask questions: Clarify any doubts with product owners</li>
+    <li>Think edge cases: Missing fields? Invalid inputs? Data boundaries?</li>
+    <li>Write test conditions first, then expand into detailed test cases</li>
+  </ul>
+
+  <p><strong>Example:</strong><br>
+    User Story: “As a user, I can search products by keyword.”</p>
+  <ul>
+    <li>Test with a valid keyword</li>
+    <li>Test with no keyword</li>
+    <li>Test with special characters</li>
+    <li>Test with a very long keyword</li>
+  </ul>
+
+  <h3>Common Mistakes to Avoid in Test Case Writing</h3>
+  <ul>
+    <li>Writing vague expected results</li>
+    <li>Missing preconditions</li>
+    <li>Combining too many checks in a single test case</li>
+    <li>Skipping boundary or negative cases</li>
+    <li>Copy-pasting without review</li>
+    <li>Using overly complex language</li>
+    <li>Forgetting to review and update cases after product changes</li>
+  </ul>
+
+  </main>
+
+<div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a> |
+  <a href="cookies.html">Cookies</a>
+</div>
+</body>
+</html>

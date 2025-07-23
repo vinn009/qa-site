@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz: Selenium WebDriver Basics – QaShift</title>
+  <meta name="description" content="Check your knowledge of Selenium WebDriver fundamentals. This quiz covers basic commands, locators, browser setup, and test execution." />
+  <meta name="keywords" content="selenium quiz, webdriver quiz, selenium basics, automation testing quiz, selenium practice, QaShift quiz" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+    header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    p {
+      line-height: 1.6;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.4rem;
+    }
+    .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Quiz 2: Selenium WebDriver Basics</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="quiz-question">
+  <h2>1. What is Selenium WebDriver?</h2>
+  <ul>
+    <li>❌ A tool for manual testing only</li>
+    <li>✅ <strong>A browser automation framework</strong></li>
+    <li>❌ A database migration tool</li>
+  </ul>
+</section>
+
+<section class="quiz-question">
+  <h2>2. Which language is NOT supported by Selenium WebDriver?</h2>
+  <ul>
+    <li>❌ Java</li>
+    <li>❌ Python</li>
+    <li>✅ <strong>PHP</strong></li>
+  </ul>
+</section>
+
+<section class="quiz-question">
+  <h2>3. What does `driver.get(\"URL\")` do?</h2>
+  <ul>
+    <li>❌ Submits a form</li>
+    <li>✅ <strong>Opens the given URL in the browser</strong></li>
+    <li>❌ Takes a screenshot of the page</li>
+  </ul>
+</section>
+
+<section class="quiz-question">
+  <h2>4. Which WebDriver method is used to locate an element?</h2>
+  <ul>
+    <li>❌ findNode()</li>
+    <li>✅ <strong>findElement()</strong></li>
+    <li>❌ getElementByTag()</li>
+  </ul>
+</section>
+
+<section class="quiz-question">
+  <h2>5. What is the purpose of `driver.quit()`?</h2>
+  <ul>
+    <li>✅ <strong>Closes all browser windows and ends the session</strong></li>
+    <li>❌ Closes only the current tab</li>
+    <li>❌ Restarts the WebDriver</li>
+  </ul>
+</section>
+
+<section class="quiz-question">
+  <h2>6. Which of the following is a valid locator in Selenium?</h2>
+  <ul>
+    <li>✅ <strong>By.id()</strong></li>
+    <li>❌ By.url()</li>
+    <li>❌ By.windowName()</li>
+  </ul>
+</section>
+
+<section class="quiz-question">
+  <h2>7. How do you perform a click action in WebDriver?</h2>
+  <ul>
+    <li>❌ .press()</li>
+    <li>❌ .select()</li>
+    <li>✅ <strong>.click()</strong></li>
+  </ul>
+</section>
+
+<section class="quiz-question">
+  <h2>8. What is the use of `WebDriverWait`?</h2>
+  <ul>
+    <li>✅ <strong>To wait for an element to become available before acting on it</strong></li>
+    <li>❌ To pause the browser permanently</li>
+    <li>❌ To refresh the DOM</li>
+  </ul>
+</section>
+
+<section class="quiz-question">
+  <h2>9. What does `driver.switchTo().alert()` do?</h2>
+  <ul>
+    <li>❌ Switches to a new tab</li>
+    <li>✅ <strong>Handles browser alert pop-ups</strong></li>
+    <li>❌ Opens a new browser window</li>
+  </ul>
+</section>
+
+<section class="quiz-question">
+  <h2>10. Which driver is used for automating Chrome browser?</h2>
+  <ul>
+    <li>❌ SafariDriver</li>
+    <li>✅ <strong>ChromeDriver</strong></li>
+    <li>❌ InternetExplorerDriver</li>
+  </ul>
+</section>
+
+
+</main>
+
+<div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a>|
+  <a href="cookies.html">Cookies</a>
+</div>
+
+</body>
+</html>

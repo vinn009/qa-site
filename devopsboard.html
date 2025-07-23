@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azure DevOps for QA – Boards, Pipelines & Testing – QaShift</title>
+  <meta name="description" content="Explore how QA teams use Azure DevOps for test planning, pipeline automation, and defect tracking. Learn boards, test cases, and CI/CD integration." />
+  <meta name="keywords" content="Azure DevOps for QA, devops board, CI/CD, test planning, azure pipelines, QA in devops, Azure test management" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+   header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+	 nav {
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .footer {
+        font-size: 0.8rem;
+      }
+      .footer a {
+        display: inline-block;
+        margin: 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Azure DevOps for QA</h1>
+	 <nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </header>
+
+  <main>
+  <h3>What is Azure DevOps Board?</h3>
+  <p>
+    Azure DevOps Boards is a work tracking system from Microsoft to manage software development tasks, bugs, user stories, and test management in one place. It supports Agile, Scrum, and Kanban frameworks.
+  </p>
+  <p>
+    You can explore more about it here: 
+    <a href="https://azure.microsoft.com/en-us/products/devops/" target="_blank">Azure DevOps official site</a>.
+  </p>
+
+  <h3>Why use DevOps Boards?</h3>
+  <ul>
+    <li>Manage backlogs, sprints, and tasks visually</li>
+    <li>Integrate with pipelines for continuous integration and deployment</li>
+    <li>Provides traceability between requirements, tasks, and bugs</li>
+    <li>Supports collaborative workflows with testers, developers, and product owners</li>
+    <li>Includes powerful reporting tools</li>
+  </ul>
+
+  <h3>How to Access DevOps Boards</h3>
+  <ul>
+    <li>Go to <a href="https://dev.azure.com/" target="_blank">https://dev.azure.com/</a></li>
+    <li>Log in with your Microsoft work account</li>
+    <li>Create or select an organization and project</li>
+    <li>Use the left-side menu to find “Boards”</li>
+  </ul>
+
+  <h3>How to Create Test Plans in DevOps Boards</h3>
+  <ul>
+    <li>Navigate to <strong>Test Plans</strong> in the left panel</li>
+    <li>Click “New Test Plan”</li>
+    <li>Give it a name, area path, and iteration</li>
+    <li>Add static or requirement-based test suites to group related tests</li>
+    <li>Save the plan</li>
+  </ul>
+
+  <h3>How to Create Test Cases in DevOps Boards</h3>
+  <ul>
+    <li>Inside a Test Plan, click “New Test Case”</li>
+    <li>Add a title, priority, and description</li>
+    <li>Define test steps: action and expected result</li>
+    <li>Link to requirements if needed</li>
+    <li>Save the test case</li>
+  </ul>
+
+  <h3>Executing Test Cases</h3>
+  <ul>
+    <li>Open the test plan</li>
+    <li>Select the test suite</li>
+    <li>Click “Run for web app” to execute tests</li>
+    <li>Mark Pass/Fail for each step and add evidence (screenshots/notes)</li>
+    <li>Results are stored for reporting and metrics</li>
+  </ul>
+
+  <h3>Importing & Exporting Test Cases</h3>
+  <ul>
+    <li>Use Azure DevOps Test Plans extension or REST API for imports</li>
+    <li>Simple bulk import via Excel with the “Test Case Migrator” plugin</li>
+    <li>Export test cases to Excel or CSV from the query results grid</li>
+    <li>Always check field mapping before importing large data sets</li>
+  </ul>
+
+  <h3>Pro Tips</h3>
+  <ul>
+    <li>Keep test titles meaningful and short</li>
+    <li>Group tests into suites logically (e.g., Smoke, Regression, Performance)</li>
+    <li>Use tags and priority fields to make searching easier</li>
+    <li>Train your team on boards, sprints, and queries to maximize value</li>
+  </ul>
+
+  <h3>Common Mistakes to Avoid</h3>
+  <ul>
+    <li>Forgetting to assign ownership to test cases</li>
+    <li>Using unclear test titles that confuse readers</li>
+    <li>Not updating results after execution</li>
+    <li>Mixing unrelated test cases into one test suite</li>
+    <li>Failing to link test cases to requirements for traceability</li>
+  </ul>
+  </main>
+
+<div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a> |
+  <a href="cookies.html">Cookies</a>
+</div>
+</body>
+</html>

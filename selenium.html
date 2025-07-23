@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selenium Automation Testing Guide – QaShift</title>
+  <meta name="description" content="Complete Selenium WebDriver guide from setup to advanced automation. Includes Java/Python basics, locators, waits, frameworks, and CI/CD integration." />
+  <meta name="keywords" content="selenium automation, selenium webdriver, automation testing, selenium guide, test automation, selenium with java, QA automation" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #222;
+    }
+    header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    nav {
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    main section {
+      margin-bottom: 3rem;
+    }
+    h2, h3 {
+      color: #333;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    ul, ol {
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    pre {
+      background: #f7f7f7;
+      padding: 1rem;
+      overflow-x: auto;
+      border: 1px solid #ddd;
+    }
+    code {
+      font-family: monospace;
+      background: #f0f0f0;
+      padding: 0.2rem 0.4rem;
+    }
+    .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+      color: #007acc;
+      text-decoration: none;
+    }
+    @media (max-width: 600px) {
+      main {
+        padding: 0.5rem;
+      }
+      .footer {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Selenium Automation</h1>
+    <nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </header>
+  <main>
+   <h1>Introduction to Selenium</h1>
+
+  <h3>What is Selenium?</h2>
+  <p>
+    Selenium is an open-source tool for automating web applications across different browsers. It supports multiple programming languages
+    like Java, Python, C#, Ruby, and JavaScript, making it a popular choice for testers worldwide.
+  </p>
+
+  <h3>Why Selenium?</h2>
+  <ul>
+    <li>Free and open-source</li>
+    <li>Supports multiple browsers (Chrome, Firefox, Edge, Safari)</li>
+    <li>Supports multiple programming languages</li>
+    <li>Large community and library support</li>
+    <li>Can be integrated with tools like Maven, Jenkins, TestNG</li>
+  </ul>
+
+  <h3>How to Install Selenium</h2>
+  <ol>
+    <li>Install <a href="https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html" target="_blank">Java JDK</a> if not installed</li>
+    <li>Install Eclipse IDE or IntelliJ IDEA for Java development</li>
+    <li>Download Selenium WebDriver Java bindings from <a href="https://www.selenium.dev/downloads/" target="_blank">selenium.dev</a></li>
+    <li>Add Selenium JAR files to your project’s build path</li>
+    <li>Install ChromeDriver for your browser from <a href="https://chromedriver.chromium.org/downloads" target="_blank">ChromeDriver site</a></li>
+  </ol>
+
+  <h3>Creating Your First Selenium Script</h2>
+  <p>Here’s a simple Java Selenium script that will open Google and search for “Selenium”:</p>
+  <pre><code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FirstSeleniumScript {
+  public static void main(String[] args) {
+    System.setProperty("webdriver.chrome.driver", "path/to/chromedriver.exe");
+    WebDriver driver = new ChromeDriver();
+    driver.get("https://www.google.com");
+    driver.findElement(By.name("q")).sendKeys("Selenium");
+    driver.findElement(By.name("q")).submit();
+    System.out.println("Page Title is: " + driver.getTitle());
+    driver.quit();
+  }
+}
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Always close the browser using <code>driver.quit()</code></li>
+    <li>Use explicit waits instead of hard-coded sleep</li>
+    <li>Keep reusable methods in a utility class</li>
+    <li>Use Page Object Model for better structure</li>
+  </ul>
+
+  <h3>Sample Website for Practice</h2>
+  <p>You can practice Selenium on this sample site: <a href="https://opensource-demo.orangehrmlive.com/" target="_blank">OrangeHRM Demo</a></p>
+  
+  <section>
+  <h1>Selenium Locators Explained</h1>
+
+  <h3>What are Locators?</h2>
+  <p>
+    Locators help Selenium identify elements on a web page to perform actions like click, type, or verify. They are critical for any Selenium automation script.
+  </p>
+
+  <h3>Types of Locators in Selenium</h2>
+  <ul>
+    <li><strong>By ID</strong> - Locates element by its unique ID attribute</li>
+    <li><strong>By Name</strong> - Uses the name attribute of elements</li>
+    <li><strong>By Class Name</strong> - Matches the class attribute</li>
+    <li><strong>By Tag Name</strong> - Locates elements by HTML tag (e.g., input, button)</li>
+    <li><strong>By Link Text</strong> - Finds links by the visible link text</li>
+    <li><strong>By Partial Link Text</strong> - Finds links by partial match of text</li>
+    <li><strong>By CSS Selector</strong> - Uses CSS syntax to find elements</li>
+    <li><strong>By XPath</strong> - Uses XPath queries to identify elements</li>
+  </ul>
+
+  <h3>Code Examples</h2>
+  <pre><code>
+// By ID
+driver.findElement(By.id("username")).sendKeys("admin");
+
+// By Name
+driver.findElement(By.name("password")).sendKeys("admin123");
+
+// By Class Name
+driver.findElement(By.className("submit-btn")).click();
+
+// By Tag Name
+List&lt;WebElement&gt; inputs = driver.findElements(By.tagName("input"));
+
+// By Link Text
+driver.findElement(By.linkText("Forgot Password?")).click();
+
+// By Partial Link Text
+driver.findElement(By.partialLinkText("Forgot")).click();
+
+// By CSS Selector
+driver.findElement(By.cssSelector("input[type='text']")).sendKeys("sample");
+
+// By XPath
+driver.findElement(By.xpath("//button[@type='submit']")).click();
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Always prefer <strong>ID</strong> if available (most stable)</li>
+    <li>Use CSS selectors or XPath for dynamic elements</li>
+    <li>Use meaningful, short, readable locators</li>
+    <li>Avoid absolute XPaths (like /html/body/div/div/div...)</li>
+  </ul>
+
+  <h3>Sample Project</h2>
+  <p>Try identifying these elements on the sample demo website: <a href="https://opensource-demo.orangehrmlive.com/" target="_blank">OrangeHRM Demo</a>.</p>
+
+  <ul>
+    <li>Username field → <code>id="txtUsername"</code></li>
+    <li>Password field → <code>id="txtPassword"</code></li>
+    <li>Login button → <code>id="btnLogin"</code></li>
+  </ul>
+
+  <p>Use these locators in your practice scripts to automate login functionality.</p>
+</section>
+<section>
+  <h1>XPath in Selenium</h1>
+
+  <h3>What is XPath?</h2>
+  <p>
+    XPath stands for XML Path Language. It is a powerful way to navigate through HTML or XML elements to locate them precisely. Selenium uses XPath to find dynamic elements on web pages.
+  </p>
+
+  <h3>Types of XPath</h2>
+  <ul>
+    <li><strong>Absolute XPath</strong> - starts from the root (html tag) and goes step by step; more fragile if the page structure changes. <br/>
+      Example: <code>/html/body/div[1]/form/input</code>
+    </li>
+    <li><strong>Relative XPath</strong> - starts from any element in the DOM, more stable and recommended. <br/>
+      Example: <code>//input[@id='username']</code>
+    </li>
+  </ul>
+
+  <h3>XPath Syntax Basics</h2>
+  <ul>
+    <li><code>//tagname[@attribute='value']</code> → find a tag by attribute</li>
+    <li><code>//tagname[text()='text']</code> → find a tag with exact text</li>
+    <li><code>//tagname[contains(@attribute,'partial')]</code> → partial match</li>
+    <li><code>//div[@class='container']//a</code> → nested elements</li>
+  </ul>
+
+  <h3>XPath Code Examples</h2>
+  <pre><code>
+// absolute example
+driver.findElement(By.xpath("/html/body/div/form/input")).sendKeys("hello");
+
+// relative example
+driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");
+
+// contains()
+driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();
+
+// text()
+driver.findElement(By.xpath("//h1[text()='Dashboard']")).isDisplayed();
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Use relative XPaths whenever possible</li>
+    <li>Prefer unique attributes (id, name, data-*)</li>
+    <li>Combine multiple attributes if needed:
+      <br/><code>//button[@type='submit' and contains(text(),'Login')]</code>
+    </li>
+    <li>Avoid deep absolute paths since they break easily with minor UI changes</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>Try finding elements on the OrangeHRM demo:</p>
+  <ul>
+    <li>Username input: <code>//input[@id='txtUsername']</code></li>
+    <li>Password input: <code>//input[@id='txtPassword']</code></li>
+    <li>Login button: <code>//input[@id='btnLogin']</code></li>
+  </ul>
+</section>
+<section>
+  <h1>Actions Class in Selenium</h1>
+
+  <h3>What is the Actions Class?</h2>
+  <p>
+    The Selenium <code>Actions</code> class helps you handle advanced user interactions such as mouse hover, drag and drop, double click, right click, and more. These are often needed for modern web applications with dynamic behavior.
+  </p>
+
+  <h3>Common Actions Supported</h2>
+  <ul>
+    <li>Mouse hover</li>
+    <li>Click and hold</li>
+    <li>Double click</li>
+    <li>Right click (context click)</li>
+    <li>Drag and drop</li>
+    <li>Keyboard actions (like pressing keys)</li>
+  </ul>
+
+  <h3>How to Use the Actions Class</h2>
+  <pre><code>
+import org.openqa.selenium.interactions.Actions;
+
+WebDriver driver = new ChromeDriver();
+Actions actions = new Actions(driver);
+
+WebElement menu = driver.findElement(By.id("menu"));
+
+actions.moveToElement(menu).perform(); // mouse hover
+
+actions.contextClick(menu).perform();  // right click
+
+actions.doubleClick(menu).perform();   // double click
+  </code></pre>
+
+  <h3>Drag and Drop Example</h2>
+  <pre><code>
+WebElement source = driver.findElement(By.id("draggable"));
+WebElement target = driver.findElement(By.id("droppable"));
+
+actions.dragAndDrop(source, target).perform();
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Always chain <code>.perform()</code> at the end of an Actions chain</li>
+    <li>Make sure the target elements are visible on the page before interacting</li>
+    <li>Use waits if the element loads dynamically</li>
+    <li>Prefer clear locators for Actions class elements</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>Try practicing mouse hover or drag-and-drop on:</p>
+  <ul>
+    <li><a href="https://jqueryui.com/droppable/" target="_blank">jQueryUI Droppable Demo</a></li>
+  </ul>
+</section>
+
+<section>
+  <h1>Handling Dropdowns in Selenium</h1>
+
+  <h3>What is a Dropdown?</h2>
+  <p>
+    A dropdown (or select element) lets users choose one or more options from a list. In Selenium, dropdowns can be handled using the <code>Select</code> class in Java.
+  </p>
+
+  <h3>Using the Select Class</h2>
+  <p>
+    Selenium provides a built-in <code>Select</code> class that works with HTML <code>&lt;select&gt;</code> tags.
+  </p>
+
+  <h3>Basic Example</h2>
+  <pre><code>
+import org.openqa.selenium.support.ui.Select;
+
+WebElement dropdown = driver.findElement(By.id("country"));
+Select select = new Select(dropdown);
+
+// select by visible text
+select.selectByVisibleText("India");
+
+// select by index
+select.selectByIndex(2);
+
+// select by value attribute
+select.selectByValue("US");
+  </code></pre>
+
+  <h3>Working with Multi-select</h2>
+  <pre><code>
+if(select.isMultiple()) {
+   select.selectByVisibleText("Option1");
+   select.selectByVisibleText("Option2");
+}
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Always check <code>isMultiple()</code> for multi-select dropdowns</li>
+    <li>Use waits if options load dynamically</li>
+    <li>Avoid using hard-coded indexes if the list can change</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    Try practicing on a sample site:
+    <a href="https://demo.guru99.com/test/newtours/register.php" target="_blank">Guru99 Register Demo</a>
+  </p>
+</section>
+
+<section>
+  <h1>Handling Alerts in Selenium</h1>
+
+  <h3>What is an Alert?</h2>
+  <p>
+    An alert is a small popup window that displays a message or asks for confirmation (like JavaScript alerts, confirms, or prompts). Selenium can handle alerts using its built-in <code>Alert</code> interface.
+  </p>
+
+  <h3>Types of Alerts</h2>
+  <ul>
+    <li>Simple alert: just shows a message and OK button</li>
+    <li>Confirmation alert: OK and Cancel buttons</li>
+    <li>Prompt alert: text box + OK/Cancel</li>
+  </ul>
+
+  <h3>Basic Example</h2>
+  <pre><code>
+Alert alert = driver.switchTo().alert();
+
+// accept the alert
+alert.accept();
+
+// dismiss (if confirm box)
+alert.dismiss();
+
+// get alert text
+String msg = alert.getText();
+
+// send text to a prompt
+alert.sendKeys("sample text");
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Always switch to alert before interacting</li>
+    <li>Use try-catch in case alerts appear conditionally</li>
+    <li>Check the alert message if needed with <code>getText()</code></li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    You can try practice alerts here:
+    <a href="https://demoqa.com/alerts" target="_blank">DemoQA Alerts</a>
+  </p>
+</section>
+
+<section>
+  <h1>Waits in Selenium</h1>
+
+  <h3>Why Waits are Important?</h2>
+  <p>
+    Web pages often load elements dynamically, so actions might fail if Selenium tries to interact before elements are ready. Waits help synchronize your tests with the application to avoid flakiness.
+  </p>
+
+  <h3>Types of Waits</h2>
+  <ul>
+    <li><strong>Implicit Wait</strong> - waits globally for every element to appear before throwing exception.</li>
+    <li><strong>Explicit Wait</strong> - waits for a specific condition for a specific element.</li>
+    <li><strong>Fluent Wait</strong> - advanced form of explicit wait with polling frequency and ignored exceptions.</li>
+  </ul>
+
+  <h3>Code Examples</h2>
+  <pre><code>
+// Implicit wait
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+// Explicit wait
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+
+// Fluent wait
+Wait<WebDriver> fluentWait = new FluentWait<>(driver)
+    .withTimeout(Duration.ofSeconds(30))
+    .pollingEvery(Duration.ofSeconds(5))
+    .ignoring(NoSuchElementException.class);
+
+WebElement foo = fluentWait.until(driver -> driver.findElement(By.id("foo")));
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Prefer explicit waits over implicit waits for better control</li>
+    <li>Never mix implicit and explicit waits together (can cause unpredictable behavior)</li>
+    <li>Use proper timeout durations based on app behavior</li>
+    <li>Log when waits time out for easier debugging</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>Try testing waits on dynamic elements at:
+    <a href="https://the-internet.herokuapp.com/dynamic_loading" target="_blank">Herokuapp Dynamic Loading</a>
+  </p>
+</section>
+
+<section>
+  <h1>TestNG Framework in Selenium</h1>
+
+  <h3>What is TestNG?</h2>
+  <p>
+    TestNG is a popular testing framework for Java that makes it easier to organize, execute, and report Selenium tests. It supports annotations, parallel execution, groups, priorities, and data-driven testing.
+  </p>
+
+  <h3>Why use TestNG with Selenium?</h2>
+  <ul>
+    <li>Easy test organization with annotations like @Test, @BeforeClass, @AfterClass</li>
+    <li>Generates built-in reports</li>
+    <li>Supports parallel test execution</li>
+    <li>Flexible configuration via XML</li>
+    <li>Integration with build tools (Maven, Jenkins)</li>
+  </ul>
+
+  <h3>Basic TestNG Example</h2>
+  <pre><code>
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+
+public class LoginTest {
+    @BeforeClass
+    public void setup() {
+        System.out.println("Open Browser");
+    }
+    @Test
+    public void login() {
+        System.out.println("Perform Login");
+    }
+    @AfterClass
+    public void tearDown() {
+        System.out.println("Close Browser");
+    }
+}
+  </code></pre>
+
+  <h3>TestNG XML Configuration</h2>
+  <pre><code>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd"&gt;
+&lt;suite name="MySuite"&gt;
+  &lt;test name="MyTest"&gt;
+    &lt;classes&gt;
+      &lt;class name="LoginTest"/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt;
+&lt;/suite&gt;
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Keep TestNG XML files in a separate folder (e.g., testng.xml in resources)</li>
+    <li>Use descriptive group names for easier test filtering</li>
+    <li>Integrate TestNG reports with Jenkins or extent reports</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    You can practice running TestNG tests in Eclipse or IntelliJ by installing the
+    <strong>TestNG plugin</strong> from the marketplace.
+  </p>
+</section>
+
+<section>
+  <h1>DataProvider in TestNG</h1>
+
+  <h3>What is DataProvider?</h2>
+  <p>
+    DataProvider is a feature in TestNG that allows you to pass multiple sets of data to a single test method. This helps build data-driven tests without duplicating code.
+  </p>
+
+  <h3>Why use DataProvider?</h2>
+  <ul>
+    <li>Run the same test with multiple data sets</li>
+    <li>Separate data from test logic</li>
+    <li>Support for parameterization of tests</li>
+  </ul>
+
+  <h3>Basic DataProvider Example</h2>
+  <pre><code>
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class LoginDataTest {
+
+  @DataProvider(name = "loginData")
+  public Object[][] getData() {
+      return new Object[][] {
+          {"admin", "admin123"},
+          {"user", "user123"},
+          {"guest", "guest123"}
+      };
+  }
+
+  @Test(dataProvider = "loginData")
+  public void loginTest(String username, String password) {
+      System.out.println("Logging in with: " + username + " / " + password);
+  }
+}
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Keep your DataProviders in a separate utility class for reusability</li>
+    <li>Use meaningful names for DataProviders</li>
+    <li>Combine with Excel or JSON files for more complex data-driven tests</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    Practice creating a DataProvider for a login test on:
+    <a href="https://opensource-demo.orangehrmlive.com/" target="_blank">OrangeHRM Demo</a>
+  </p>
+</section>
+
+<section>
+  <h1>Parameterization in Selenium</h1>
+
+  <h3>What is Parameterization?</h2>
+  <p>
+    Parameterization means passing different input values to your test scripts without hardcoding them, making your tests reusable and data-driven.
+  </p>
+
+  <h3>How to do Parameterization in Selenium?</h2>
+  <ul>
+    <li>Using TestNG <code>&lt;parameter&gt;</code> tags in XML</li>
+    <li>Using TestNG DataProviders</li>
+    <li>Reading data from Excel, JSON, CSV, or databases</li>
+  </ul>
+
+  <h3>Example with TestNG XML Parameters</h2>
+  <pre><code>
+// testng.xml
+&lt;parameter name="username" value="admin"/&gt;
+
+// Java
+@Parameters({"username"})
+@Test
+public void testLogin(String user) {
+    System.out.println("Logging in with: " + user);
+}
+  </code></pre>
+
+  <h3>Example from Excel (Apache POI)</h2>
+  <pre><code>
+// simplified example
+FileInputStream fis = new FileInputStream("testdata.xlsx");
+Workbook wb = WorkbookFactory.create(fis);
+Sheet sh = wb.getSheet("Login");
+String username = sh.getRow(0).getCell(0).getStringCellValue();
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Use external data files to avoid hardcoding</li>
+    <li>Keep parameter names consistent across XML and Java</li>
+    <li>Handle missing or null data gracefully</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    Try parameterizing login data for
+    <a href="https://opensource-demo.orangehrmlive.com/" target="_blank">OrangeHRM Demo</a>
+    with different usernames and passwords.
+  </p>
+</section>
+
+<section>
+  <h1>Page Object Model (POM) in Selenium</h1>
+
+  <h3>What is POM?</h2>
+  <p>
+    The Page Object Model (POM) is a design pattern in Selenium that helps you maintain clean, reusable, and scalable test code by separating page locators and actions into dedicated classes.
+  </p>
+
+  <h3>Why use POM?</h2>
+  <ul>
+    <li>Improves code readability and reusability</li>
+    <li>Makes tests easier to maintain when the UI changes</li>
+    <li>Supports cleaner separation of concerns</li>
+  </ul>
+
+  <h3>Basic POM Example</h2>
+  <p>Let’s automate a simple login page.</p>
+  <pre><code>
+// LoginPage.java
+public class LoginPage {
+  WebDriver driver;
+
+  @FindBy(id="username") WebElement usernameField;
+  @FindBy(id="password") WebElement passwordField;
+  @FindBy(id="loginBtn") WebElement loginButton;
+
+  public LoginPage(WebDriver driver) {
+    this.driver = driver;
+    PageFactory.initElements(driver, this);
+  }
+
+  public void login(String user, String pass) {
+    usernameField.sendKeys(user);
+    passwordField.sendKeys(pass);
+    loginButton.click();
+  }
+}
+  </code></pre>
+
+  <p>Then in your test class:</p>
+  <pre><code>
+// LoginTest.java
+LoginPage lp = new LoginPage(driver);
+lp.login("admin", "admin123");
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Use meaningful page object class names</li>
+    <li>Keep locators and actions together in the page class</li>
+    <li>Use the PageFactory to initialize elements</li>
+    <li>Follow a consistent package structure (e.g., <code>pages</code>, <code>tests</code>)</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    Try implementing POM for the login flow of
+    <a href="https://opensource-demo.orangehrmlive.com/" target="_blank">OrangeHRM Demo</a>.
+  </p>
+</section>
+<section>
+  <h1>Hybrid Framework in Selenium</h1>
+
+  <h3>What is a Hybrid Framework?</h2>
+  <p>
+    A Hybrid Framework combines multiple automation frameworks such as Data-Driven, Keyword-Driven, and Page Object Model. It takes the best features of each and creates a flexible, scalable, and reusable structure for automation.
+  </p>
+
+  <h3>Why use a Hybrid Framework?</h2>
+  <ul>
+    <li>Better maintainability by separating data, keywords, and locators</li>
+    <li>Supports reusability through Page Object classes</li>
+    <li>Easy to scale for large projects</li>
+    <li>Non-programmers can contribute using keywords</li>
+  </ul>
+
+  <h3>How does it work?</h2>
+  <p>
+    Typically, a Hybrid Framework has:
+  </p>
+  <ul>
+    <li>Test scripts that call reusable methods (Page Objects)</li>
+    <li>External data sources (Excel, JSON, XML) for data-driven testing</li>
+    <li>Keyword files for business actions</li>
+    <li>TestNG or JUnit for execution control</li>
+    <li>Reporting tools like ExtentReports for results</li>
+  </ul>
+
+  <h3>Example Folder Structure</h2>
+  <pre><code>
+/tests
+  LoginTest.java
+/pages
+  LoginPage.java
+/keywords
+  KeywordLibrary.java
+/utils
+  ExcelUtils.java
+/testdata
+  LoginData.xlsx
+/reports
+  extent-report.html
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Keep page objects, test data, keywords, and utilities in separate folders</li>
+    <li>Version control the framework with Git</li>
+    <li>Write a framework setup guide for your team</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    Try building a hybrid framework combining DataProvider, POM, and reusable keyword methods for:
+    <a href="https://opensource-demo.orangehrmlive.com/" target="_blank">OrangeHRM Demo</a>.
+  </p>
+</section>
+
+<section>
+  <h1>Behavior Driven Development (BDD) with Cucumber</h1>
+
+  <h3>What is BDD?</h2>
+  <p>
+    Behavior Driven Development (BDD) is a software development approach where test scenarios are written in plain English using a language called Gherkin. BDD bridges the gap between business, development, and testing teams by making test cases more readable and collaborative.
+  </p>
+
+  <h3>Why use Cucumber with Selenium?</h2>
+  <ul>
+    <li>Uses plain language steps: Given, When, Then</li>
+    <li>Improves collaboration with non-technical stakeholders</li>
+    <li>Separates feature files (requirements) from step definitions (code)</li>
+    <li>Integrates easily with Java Selenium frameworks</li>
+  </ul>
+
+  <h3>Sample Gherkin Feature File</h2>
+  <pre><code>
+Feature: Login functionality
+
+  Scenario: Successful login
+    Given user is on login page
+    When user enters valid credentials
+    Then user should be redirected to the dashboard
+  </code></pre>
+
+  <h3>Sample Step Definition</h2>
+  <pre><code>
+@Given("user is on login page")
+public void user_is_on_login_page() {
+  driver.get("https://opensource-demo.orangehrmlive.com/");
+}
+
+@When("user enters valid credentials")
+public void user_enters_valid_credentials() {
+  driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+  driver.findElement(By.id("txtPassword")).sendKeys("admin123");
+  driver.findElement(By.id("btnLogin")).click();
+}
+
+@Then("user should be redirected to the dashboard")
+public void user_should_see_dashboard() {
+  Assert.assertTrue(driver.findElement(By.id("welcome")).isDisplayed());
+}
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Keep feature files simple and business-readable</li>
+    <li>Reuse step definitions to avoid duplication</li>
+    <li>Use hooks for setup and teardown code</li>
+    <li>Use page objects inside your step definitions for cleaner code</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    Try writing a login feature and step definition for
+    <a href="https://opensource-demo.orangehrmlive.com/" target="_blank">OrangeHRM Demo</a>
+    using Cucumber and Selenium.
+  </p>
+</section>
+
+<section>
+  <h1>Jenkins for CI/CD in Selenium Automation</h1>
+
+  <h3>What is Jenkins?</h2>
+  <p>
+    Jenkins is an open-source continuous integration and continuous delivery (CI/CD) tool that helps automate building, testing, and deploying software. It integrates perfectly with Selenium frameworks to automatically run your automated tests.
+  </p>
+
+  <h3>Why use Jenkins with Selenium?</h2>
+  <ul>
+    <li>Schedule tests automatically on code changes</li>
+    <li>Run tests on multiple environments (Windows, Linux, cloud)</li>
+    <li>Generate detailed reports after test runs</li>
+    <li>Support for plugins like TestNG and Allure reports</li>
+  </ul>
+
+  <h3>How to Set Up Jenkins for Selenium</h2>
+  <ol>
+    <li>Download Jenkins from <a href="https://www.jenkins.io/download/" target="_blank">jenkins.io</a></li>
+    <li>Install Java JDK if not installed</li>
+    <li>Run Jenkins and open its dashboard on <code>http://localhost:8080</code></li>
+    <li>Install suggested plugins</li>
+    <li>Create a new job (Freestyle or Pipeline)</li>
+    <li>Configure Git repository and build steps (Maven commands, etc.)</li>
+    <li>Save and trigger builds</li>
+  </ol>
+
+  <h3>Sample Maven Command for Jenkins</h2>
+  <pre><code>
+mvn clean test
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Keep Jenkins updated to the latest LTS version</li>
+    <li>Use pipeline scripts (Jenkinsfile) for better control</li>
+    <li>Store sensitive credentials securely with Jenkins Credentials plugin</li>
+    <li>Archive reports as artifacts for later analysis</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    Try configuring a Jenkins Freestyle job to run your Selenium Maven project after each code commit from GitHub.
+  </p>
+</section>
+
+<section>
+  <h1>GitHub Integration with Selenium</h1>
+
+  <h3>Why use GitHub with Selenium?</h2>
+  <p>
+    GitHub is a powerful version control and collaboration platform that helps you store, share, and manage your Selenium automation code with teams. It allows you to track changes, manage branches, and integrate with CI/CD tools like Jenkins.
+  </p>
+
+  <h3>Benefits of Using GitHub</h2>
+  <ul>
+    <li>Easy code sharing with team members</li>
+    <li>Change tracking with commit history</li>
+    <li>Branching for parallel development and testing</li>
+    <li>Integration with Jenkins for automated builds</li>
+    <li>Open source and widely adopted in the industry</li>
+  </ul>
+
+  <h3>How to Use GitHub with Selenium</h2>
+  <ol>
+    <li>Create a free account on <a href="https://github.com" target="_blank">GitHub</a></li>
+    <li>Initialize a new repository for your Selenium project</li>
+    <li>Use <code>git</code> commands or GitHub Desktop to push your project code</li>
+    <li>Share the repo link with your team</li>
+    <li>Integrate your repository in Jenkins under "Source Code Management"</li>
+  </ol>
+
+  <h3>Sample Git Commands</h2>
+  <pre><code>
+git init
+git add .
+git commit -m "first selenium project"
+git remote add origin https://github.com/yourusername/yourrepo.git
+git push -u origin main
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Use meaningful commit messages</li>
+    <li>Follow branching strategies (e.g., feature, dev, main branches)</li>
+    <li>Protect your main branch with PR (Pull Request) reviews</li>
+    <li>Use .gitignore to exclude temporary files or logs</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    Create a GitHub repo, push your Selenium Maven project, and link it to a Jenkins build pipeline.
+  </p>
+</section>
+<section>
+  <h1>Maven for Selenium Projects</h1>
+
+  <h3>What is Maven?</h2>
+  <p>
+    Maven is a popular build automation and dependency management tool for Java projects. It makes it easy to manage Selenium libraries, build processes, and test execution from a single configuration file.
+  </p>
+
+  <h3>Why use Maven with Selenium?</h2>
+  <ul>
+    <li>Automatically downloads Selenium dependencies from a central repository</li>
+    <li>Supports project builds with a single command</li>
+    <li>Easy to integrate with CI tools like Jenkins</li>
+    <li>Uses a simple <code>pom.xml</code> to manage everything</li>
+  </ul>
+
+  <h3>Installing Maven</h2>
+  <ol>
+    <li>Download Maven from <a href="https://maven.apache.org/download.cgi" target="_blank">maven.apache.org</a></li>
+    <li>Unzip and add Maven’s <code>bin</code> directory to your system PATH</li>
+    <li>Verify by running <code>mvn -v</code> in your terminal</li>
+  </ol>
+
+  <h3>Sample <code>pom.xml</code> for Selenium</h2>
+  <pre><code>
+&lt;project&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;com.example&lt;/groupId&gt;
+  &lt;artifactId&gt;seleniumproject&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+      &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+      &lt;version&gt;4.10.0&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.testng&lt;/groupId&gt;
+      &lt;artifactId&gt;testng&lt;/artifactId&gt;
+      &lt;version&gt;7.9.0&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;
+  </code></pre>
+
+  <h3>How to Run Tests with Maven</h2>
+  <p>
+    Use the following command to execute tests:
+  </p>
+  <pre><code>
+mvn clean test
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Always update dependencies to stable versions</li>
+    <li>Keep your <code>pom.xml</code> clean and organized</li>
+    <li>Use Maven profiles to manage different environments (QA, staging, prod)</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    Create a Maven project for Selenium and configure it to run TestNG tests automatically.
+  </p>
+</section>
+
+<section>
+  <h1>Reporting in Selenium Automation</h1>
+
+  <h3>Why is Reporting Important?</h2>
+  <p>
+    Reports help you visualize test execution results, identify failures quickly, and share outcomes with your team or stakeholders. Selenium alone does not generate rich reports, so you typically integrate it with reporting tools.
+  </p>
+
+  <h3>Popular Reporting Tools</h2>
+  <ul>
+    <li>ExtentReports</li>
+    <li>Allure Reports</li>
+    <li>TestNG HTML Reports (built-in)</li>
+  </ul>
+
+  <h3>ExtentReports Setup Example</h2>
+  <pre><code>
+// Maven dependency
+&lt;dependency&gt;
+  &lt;groupId&gt;com.aventstack&lt;/groupId&gt;
+  &lt;artifactId&gt;extentreports&lt;/artifactId&gt;
+  &lt;version&gt;5.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+
+// Java example
+ExtentReports extent = new ExtentReports();
+ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+extent.attachReporter(spark);
+
+ExtentTest test = extent.createTest("LoginTest");
+test.pass("Login test passed");
+
+extent.flush();
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Save reports with timestamps to distinguish runs</li>
+    <li>Integrate screenshots for failures</li>
+    <li>Use consistent naming for test cases in reports</li>
+    <li>Keep reports under version control if needed</li>
+  </ul>
+
+  <h3>Sample Practice</h2>
+  <p>
+    Try setting up ExtentReports for your Selenium TestNG project to generate detailed reports with pass/fail screenshots.
+  </p>
+</section>
+
+<section>
+  <h1>Sample Selenium Project Walkthrough</h1>
+
+  <h3>Project Overview</h2>
+  <p>
+    Let’s put everything together in a simple Selenium Maven + TestNG project following POM design pattern. We’ll automate login for the OrangeHRM demo site as a practical example.
+  </p>
+
+  <h3>Project Structure</h2>
+  <pre><code>
+/src
+  /main
+    /java
+      /pages
+        LoginPage.java
+      /tests
+        LoginTest.java
+      /utils
+        ExcelUtils.java
+/testdata
+  LoginData.xlsx
+/testng.xml
+  </code></pre>
+
+  <h3>LoginPage.java (Page Object)</h2>
+  <pre><code>
+public class LoginPage {
+  WebDriver driver;
+  @FindBy(id="txtUsername") WebElement username;
+  @FindBy(id="txtPassword") WebElement password;
+  @FindBy(id="btnLogin") WebElement loginButton;
+
+  public LoginPage(WebDriver driver) {
+    this.driver = driver;
+    PageFactory.initElements(driver, this);
+  }
+
+  public void login(String user, String pass) {
+    username.sendKeys(user);
+    password.sendKeys(pass);
+    loginButton.click();
+  }
+}
+  </code></pre>
+
+  <h3>LoginTest.java</h2>
+  <pre><code>
+public class LoginTest {
+  WebDriver driver;
+  LoginPage login;
+
+  @BeforeClass
+  public void setup() {
+    driver = new ChromeDriver();
+    driver.get("https://opensource-demo.orangehrmlive.com/");
+    login = new LoginPage(driver);
+  }
+
+  @Test
+  public void testLogin() {
+    login.login("Admin", "admin123");
+    Assert.assertTrue(driver.findElement(By.id("welcome")).isDisplayed());
+  }
+
+  @AfterClass
+  public void tearDown() {
+    driver.quit();
+  }
+}
+  </code></pre>
+
+  <h3>testng.xml</h2>
+  <pre><code>
+&lt;suite name="OrangeHRMSuite"&gt;
+  &lt;test name="LoginTest"&gt;
+    &lt;classes&gt;
+      &lt;class name="tests.LoginTest"/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt;
+&lt;/suite&gt;
+  </code></pre>
+
+  <h3>Best Practices</h2>
+  <ul>
+    <li>Follow proper naming conventions for classes and packages</li>
+    <li>Keep page locators separate from test logic</li>
+    <li>Version control the entire project with GitHub</li>
+    <li>Use Maven to manage dependencies and builds</li>
+    <li>Integrate reporting with ExtentReports for results</li>
+  </ul>
+
+  <h3>Next Steps</h2>
+  <p>
+    Enhance this project by adding DataProviders, external data sources, and Jenkins for CI/CD.
+  </p>
+</section>
+
+  </main>
+  <div class="footer">
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="privacy.html">Privacy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="sitemap.html">Sitemap</a> |
+    <a href="cookies.html">Cookies</a>
+  </div>
+</body>
+</html>

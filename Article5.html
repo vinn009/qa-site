@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smoke vs Sanity Testing – Quick Comparison – QaShift</title>
+  <meta name="description" content="Understand the difference between smoke and sanity testing. Learn when to use each and why they matter in the software QA cycle." />
+  <meta name="keywords" content="Smoke testing vs sanity testing, QA types, quick test comparison, regression testing, build verification" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+    header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    p {
+      line-height: 1.6;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.4rem;
+    }
+    .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Smoke vs Sanity Testing – Quick Comparison</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Introduction</h2>
+    <p>
+      Smoke and Sanity testing are two essential types of software testing performed at different stages of the build cycle. Although they sound similar and are both lightweight in nature, they serve different purposes. Understanding the difference between these two helps testers avoid confusion during fast-paced release cycles.
+    </p>
+  </section>
+
+  <section>
+    <h2>What is Smoke Testing?</h2>
+    <p>
+      Smoke testing is a surface-level testing technique that verifies whether the critical functionalities of the application are working after a new build. It is often referred to as "Build Verification Testing."
+    </p>
+    <ul>
+      <li>Performed after a new build is deployed</li>
+      <li>Focuses on major functionalities only</li>
+      <li>Decides whether the build is stable enough for further testing</li>
+      <li>Usually automated or executed quickly</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What is Sanity Testing?</h2>
+    <p>
+      Sanity testing is performed after receiving a minor code change or bug fix to ensure that the issues are resolved and no new defects are introduced. It is more focused and narrow than smoke testing.
+    </p>
+    <ul>
+      <li>Conducted after code changes or bug fixes</li>
+      <li>Focuses on the specific area affected by the change</li>
+      <li>Ensures stability of new features or fixes</li>
+      <li>May or may not be scripted</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Key Differences</h2>
+    <table border="1" cellpadding="6" cellspacing="0">
+      <tr>
+        <th>Criteria</th>
+        <th>Smoke Testing</th>
+        <th>Sanity Testing</th>
+      </tr>
+      <tr>
+        <td>Purpose</td>
+        <td>Verify overall stability of a build</td>
+        <td>Validate bug fixes or new functionality</td>
+      </tr>
+      <tr>
+        <td>Coverage</td>
+        <td>Broad and shallow</td>
+        <td>Narrow and deep</td>
+      </tr>
+      <tr>
+        <td>Performed When?</td>
+        <td>After a new build is deployed</td>
+        <td>After minor changes or fixes</td>
+      </tr>
+      <tr>
+        <td>Documentation</td>
+        <td>Often scripted</td>
+        <td>Can be unscripted</td>
+      </tr>
+      <tr>
+        <td>Automation</td>
+        <td>Usually automated</td>
+        <td>May or may not be automated</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Conclusion</h2>
+    <p>
+      Both smoke and sanity testing are essential checkpoints in the software release cycle. Smoke testing ensures the application is testable at all, while sanity testing ensures new changes work as expected. Understanding when and how to apply each improves test efficiency and release stability.
+    </p>
+  </section>
+
+
+</main>
+
+<div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a>|
+  <a href="cookies.html">Cookies</a>
+</div>
+
+</body>
+</html>

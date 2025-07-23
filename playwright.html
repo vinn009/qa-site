@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playwright Automation Testing Guide – QaShift</title>
+  <meta name="description" content="Learn Playwright from scratch: setup, writing tests, handling selectors, parallel execution, CI integration, and cross-browser automation for QA." />
+  <meta name="keywords" content="playwright automation, playwright for QA, end-to-end testing, browser automation, playwright testing guide, QA tools" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+    header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.3rem;	
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+	  nav {
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .footer {
+        font-size: 0.8rem;
+      }
+      .footer a {
+        display: inline-block;
+        margin: 0.3rem;
+      }
+    }
+	
+
+@media screen and (max-width: 500px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Playwright for QA</h1>
+  	<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<main>
+ 
+  <h3>What is Playwright?</h3>
+  <p>
+    Playwright is a modern, open-source automation framework developed by Microsoft, enabling fast, reliable end-to-end testing of web applications. It supports multiple languages (JavaScript, TypeScript, Python, Java, .NET) and covers all modern browsers like Chromium, Firefox, and WebKit.
+  </p>
+  <p>
+    Playwright’s strength is its automatic wait handling, modern architecture, and cross-browser capabilities. It is especially popular for testing Single Page Applications (SPAs) with dynamic elements and complex client-side logic.
+  </p>
+  
+  <h3>Why Playwright?</h3>
+  <ul>
+    <li>Faster than legacy Selenium-based frameworks</li>
+    <li>Built-in support for modern web frameworks (React, Angular, Vue)</li>
+    <li>Cross-browser testing with a single API</li>
+    <li>Automatic waiting and retries reduce flaky tests</li>
+    <li>First-class support for headless execution</li>
+    <li>Powerful features like network mocking, file uploads, geolocation testing</li>
+  </ul>
+  <p>
+    Overall, Playwright is designed to simplify modern test automation challenges with fewer dependencies and less boilerplate code.
+  </p>
+
+
+  <h3>Installing Playwright</h3>
+  <p>
+    Playwright is built on Node.js. Before starting, ensure you have Node.js installed on your machine. You can verify by running:
+  </p>
+  <pre><code>node -v</code></pre>
+  <p>
+    If not installed, download from <a href="https://nodejs.org/" target="_blank">Node.js official site</a>.
+  </p>
+
+  <h3>Install Playwright Using NPM</h3>
+  <pre><code>npm init playwright@latest</code></pre>
+  <p>
+    This command will initialize a new Playwright project, letting you choose:
+  </p>
+  <ul>
+    <li>Language (JavaScript or TypeScript)</li>
+    <li>Whether to use test examples</li>
+    <li>Browser options</li>
+  </ul>
+  <p>
+    Playwright will automatically download browser binaries for Chromium, Firefox, and WebKit.
+  </p>
+
+  <h3>Project Structure</h3>
+  <p>
+    After setup, a typical Playwright project folder will look like this:
+  </p>
+  <pre><code>
+tests/
+  example.spec.js
+playwright.config.js
+package.json
+  </code></pre>
+  <p>
+    You are now ready to write your first Playwright script!
+  </p>
+
+
+  <h3>Writing Your First Playwright Test</h3>
+  <p>
+    Let’s write a simple test to check the Playwright setup. By default, the Playwright test runner uses <code>@playwright/test</code> which supports powerful test functions and assertions.
+  </p>
+  <p>
+    Create a file called <code>example.spec.js</code> under the <code>tests</code> folder:
+  </p>
+  <pre><code>const { test, expect } = require('@playwright/test');
+
+  test('should have correct page title', 
+  async ({ page }) =&gt; {
+  await page.goto('https://playwright.dev/');
+  await expect(page).toHaveTitle(/Playwright/);
+});
+</code></pre>
+  <p>
+    This test will:
+  </p>
+  <ul>
+    <li>Open the Playwright homepage</li>
+    <li>Check if the page title contains the word “Playwright”</li>
+  </ul>
+
+  <h3>Running the Test</h3>
+  <p>In your terminal, run:</p>
+  <pre><code>npx playwright test</code></pre>
+  <p>
+    Playwright will launch the browser in headless mode and execute your test. You’ll see a success or failure report in the console.
+  </p>
+
+  <h3>View HTML Reports</h3>
+  <p>
+    After running, you can generate an HTML report:
+  </p>
+  <pre><code>npx playwright show-report</code></pre>
+  <p>This will open a graphical test report in your browser.</p>
+
+
+  <h3>Understanding Locators in Playwright</h3>
+  <p>
+    Locators are at the heart of Playwright. They help you identify and interact with page elements. Playwright offers powerful locator strategies that automatically retry and wait until the element is ready, reducing flaky tests.
+  </p>
+  <h3>Common Locator Types</h3>
+  <ul>
+    <li><strong>Text selector:</strong> <code>page.locator('text=Login')</code></li>
+    <li><strong>CSS selector:</strong> <code>page.locator('button.submit')</code></li>
+    <li><strong>XPath:</strong> <code>page.locator('//button[@type=\"submit\"]')</code></li>
+    <li><strong>Role-based:</strong> <code>page.getByRole('button', { name: 'Submit' })</code></li>
+  </ul>
+  <h3>Using Locators</h3>
+  <p>
+    You can perform actions with locators:
+  </p>
+  <pre><code>
+await page.locator('#username').fill('myUser');
+await page.locator('#password').fill('myPass');
+await page.locator('button[type=submit]').click();
+  </code></pre>
+  <p>
+    Playwright’s locator engine supports chaining and powerful queries:
+  </p>
+  <pre><code>
+await page.locator('.card').
+filter({ hasText: 'Special Offer' }).click();
+  </code></pre>
+  <p>
+    These locators make it easy to write readable, maintainable tests.
+  </p>
+
+  <h3>Assertions in Playwright</h3>
+  <p>
+    Playwright includes a powerful set of built-in assertions that integrate seamlessly with its test runner. Assertions validate that the page or elements meet expected conditions.
+  </p>
+  <h3>Common Assertions</h3>
+  <ul>
+    <li><strong>Check URL:</strong> <code>await expect(page).toHaveURL(/.*dashboard/)</code></li>
+    <li><strong>Check page title:</strong> <code>await expect(page).toHaveTitle(/Dashboard/)</code></li>
+    <li><strong>Check element text:</strong> <code>await expect(page.locator('h1')).toHaveText('Welcome')</code></li>
+    <li><strong>Check visibility:</strong> <code>await expect(page.locator('#menu')).toBeVisible()</code></li>
+  </ul>
+  <h3>Why Assertions Matter</h3>
+  <p>
+    Assertions make your tests meaningful by verifying the correct state of the application after performing actions. Without assertions, you are only performing steps without validating outcomes.
+  </p>
+  <h3>Best Practices</h3>
+  <ul>
+    <li>Use Playwright’s built-in assertions whenever possible</li>
+    <li>Include at least one assertion per test case</li>
+    <li>Keep assertions clear and precise to avoid confusion</li>
+  </ul>
+
+  <h3>Handling Dropdowns, Alerts, and Iframes</h3>
+  <h3>Handling Dropdowns</h3>
+  <p>You can select an option from a dropdown using:</p>
+  <pre><code>
+await page.selectOption('#country', 'IN'); 
+// Selects India by value
+  </code></pre>
+  <p>
+    You can also select by label or index with <code>selectOption</code>.
+  </p>
+
+  <h3>Handling Alerts and Pop-ups</h3>
+  <p>
+    Playwright provides event listeners for handling dialogs:
+  </p>
+  <pre><code>
+  page.on('dialog', async dialog =&gt; {
+  console.log(dialog.message());
+  await dialog.accept();
+});
+  </code></pre>
+  <p>
+    This pattern helps manage confirmation boxes or JavaScript alerts.
+  </p>
+
+  <h3>Working with Iframes</h3>
+  <p>
+    To work with elements inside an iframe:
+  </p>
+  <pre><code>
+const frame = page.frame({ name: 'myFrame' });
+await frame.click('button#submit');
+  </code></pre>
+  <p>
+    You can locate the iframe either by its <code>name</code>, <code>url</code>, or other attributes.
+  </p>
+
+  <h3>File Uploads</h3>
+  <p>Playwright supports file uploads directly:</p>
+  <pre><code>
+await page.setInputFiles('input[type=file]'
+, 'myfile.pdf');
+  </code></pre>
+
+  <h3>File Downloads</h3>
+  <p>To handle downloads:</p>
+  <pre><code>
+  const [ download ] = await Promise.
+  all([
+  page.waitForEvent('download'),
+  page.click('a#downloadLink')
+]);
+await download.saveAs('myfile.pdf');
+  </code></pre>
+
+  <h3>Page Object Model in Playwright</h3>
+  <p>
+    The Page Object Model (POM) is a design pattern that helps you organize test code by separating page interactions into reusable classes. This improves maintainability and readability.
+  </p>
+
+  <h3>Creating a Page Object</h3>
+  <p>For example, create a file called <code>loginPage.js</code>:</p>
+  <pre><code>
+class LoginPage {
+  constructor(page) {
+    this.page = page;
+    this.usernameInput = page.locator('#username');
+    this.passwordInput = page.locator('#password');
+    this.loginButton = page.locator(
+	'button[type=submit]');
+  }
+  
+  async login(username, password) {
+    await this.usernameInput.fill(username);
+    await this.passwordInput.fill(password);
+    await this.loginButton.click();
+  }
+}
+module.exports = { LoginPage };
+  </code></pre>
+
+  <h3>Using the Page Object</h3>
+  <p>In your test file:</p>
+  <pre><code>
+const { LoginPage } = require('./loginPage');
+
+  test('login scenario', async ({ page }) 
+  =&gt; {
+  const login = new LoginPage(page);
+  await page.goto('https://example.com/login');
+  await login.login('user1', 'pass1');
+  await expect(page).toHaveURL(/dashboard/);
+});
+  </code></pre>
+  <p>
+    POM makes tests cleaner and easier to update when page layouts change.
+  </p>
+
+  <h3>Data-driven Testing in Playwright</h3>
+  <p>
+    Data-driven testing lets you run the same test scenario with different sets of data. This improves coverage and reduces duplication.
+  </p>
+  <h3>Example with Inline Data</h3>
+  <pre><code>
+const { test, expect } = require('@playwright/test');
+
+const dataSet = [
+  { username: 'user1', password: 'pass1' },
+  { username: 'user2', password: 'pass2' }
+];
+
+    for (const data of dataSet) {
+    test(`login test for ${data.username}`, 
+    async ({ page }) =&gt; {
+    await page.goto('https://example.com/login');
+    await page.fill('#username', data.username);
+    await page.fill('#password', data.password);
+    await page.click('button[type=submit]');
+    await expect(page).toHaveURL(/dashboard/);
+  });
+}
+  </code></pre>
+
+  <h3>Reading from JSON</h3>
+  <p>You can also store test data in an external JSON file and import it:</p>
+  <pre><code>
+// data.json
+[
+  { "username": "u1", "password": "p1" },
+  { "username": "u2", "password": "p2" }
+]
+  </code></pre>
+  <pre><code>
+// test file
+const data = require('./data.json');
+for (const record of data) {
+  test(`login test for ${record.username}`, 
+  async ({ page }) =&gt; {
+    // same steps
+  });
+}
+  </code></pre>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Test multiple variations with minimal code</li>
+    <li>Easier to maintain</li>
+    <li>Encourages reusable scripts</li>
+  </ul>
+
+  <h3>Parallel Test Execution in Playwright</h3>
+  <p>
+    Playwright supports parallel execution natively, running multiple tests simultaneously to speed up overall execution.
+  </p>
+  <h3>How It Works</h3>
+  <p>
+    Playwright creates workers that run test files in parallel. By default, it will choose the number of workers based on your CPU cores.
+  </p>
+  <h3>Running in Parallel</h3>
+  <pre><code>npx playwright test --workers=4</code></pre>
+  <p>
+    This will run 4 parallel workers. Adjust the number to suit your machine or CI pipeline.
+  </p>
+
+  <h3>Configuration</h3>
+  <p>
+    You can also configure the number of workers in <code>playwright.config.js</code>:
+  </p>
+  <pre><code>
+module.exports = {
+  workers: 3
+};
+  </code></pre>
+
+  <h3>Best Practices</h3>
+  <ul>
+    <li>Keep tests independent of each other</li>
+    <li>Use isolated test data or cleanup between tests</li>
+    <li>Avoid hard-coded waits — rely on Playwright's auto-waiting</li>
+  </ul>
+
+  <h3>Reporting in Playwright</h3>
+  <p>
+    Playwright provides several built-in reporting options to help you analyze test results. The default HTML report is easy to use and visually appealing.
+  </p>
+  <h3>Generating an HTML Report</h3>
+  <p>
+    After running your tests, you can view the report using:
+  </p>
+  <pre><code>npx playwright show-report</code></pre>
+  <p>
+    This will open an HTML-based dashboard summarizing your test results, including passed/failed test cases and their timings.
+  </p>
+  <h3>Custom Reporters</h3>
+  <p>
+    Playwright also supports adding custom reporters in your <code>playwright.config.js</code>:
+  </p>
+  <pre><code>
+module.exports = {
+  reporter: [
+    ['list'],
+    ['json', { outputFile: 'results.json' }],
+    ['html', { open: 'never' }]
+  ]
+};
+  </code></pre>
+  <p>
+    This configuration uses a list reporter, a JSON file for automation pipelines, and an HTML report without auto-opening.
+  </p>
+  <h3>Popular Third-Party Reporting Options</h3>
+  <ul>
+    <li>Allure Playwright Reporter</li>
+    <li>JUnit XML</li>
+    <li>Custom JSON for dashboards</li>
+  </ul>
+  <p>
+    Reporting helps stakeholders and developers understand test quality over time.
+  </p>
+
+  <h3>Integrating Playwright with CI/CD</h3>
+  <p>
+    Integrating Playwright into a CI/CD pipeline ensures tests run automatically whenever code changes are pushed. Popular platforms like GitHub Actions, GitLab CI, and Jenkins support Playwright seamlessly.
+  </p>
+
+  <h3>Example: GitHub Actions</h3>
+  <p>Create a file called <code>.github/workflows/playwright.yml</code>:</p>
+  <pre><code>
+name: Playwright Tests
+on:
+  push:
+    branches: [ main ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+      - name: Run tests
+        run: npx playwright test
+  </code></pre>
+
+  <h3>Other CI Tools</h3>
+  <ul>
+    <li><strong>Jenkins:</strong> Run Playwright tests with a simple shell/batch step</li>
+    <li><strong>GitLab CI:</strong> Use the <code>node</code> Docker image and add Playwright commands in your pipeline</li>
+    <li><strong>Azure DevOps:</strong> Integrate using npm scripts in a pipeline YAML</li>
+  </ul>
+
+  <h3>Benefits of CI/CD Automation</h3>
+  <ul>
+    <li>Catch bugs earlier in the development cycle</li>
+    <li>Generate reports after every build</li>
+    <li>Save manual testing time</li>
+  </ul>
+
+  <h3>Best Practices in Playwright</h3>
+  <p>
+    Following best practices makes your Playwright tests more reliable, easier to maintain, and faster to execute.
+  </p>
+
+  <h3>Recommended Practices</h3>
+  <ul>
+    <li>Use the Page Object Model to separate locators and actions from tests</li>
+    <li>Keep tests independent; never rely on execution order</li>
+    <li>Use Playwright's built-in waits instead of hard-coded <code>sleep</code></li>
+    <li>Organize your tests logically in folders with consistent naming</li>
+    <li>Use environment variables to manage URLs, credentials, and secrets</li>
+    <li>Clean up data after tests to avoid polluting other test runs</li>
+    <li>Run tests in headless mode for CI pipelines, but optionally headed mode for debugging</li>
+  </ul>
+
+  <h3>Debugging Tips</h3>
+  <ul>
+    <li>Use <code>page.pause()</code> to interactively debug in headed mode</li>
+    <li>Use Playwright Trace Viewer to replay steps and spot errors</li>
+    <li>Print console logs with <code>console.log()</code> for quick inspection</li>
+  </ul>
+
+  <h3>Maintainability</h3>
+  <ul>
+    <li>Use data-driven patterns to minimize test duplication</li>
+    <li>Version-control your tests just like your application code</li>
+    <li>Use a consistent linting and formatting style (e.g., ESLint + Prettier)</li>
+  </ul>
+
+  <h3>Final Mini Project: Automated Login Flow</h3>
+  <p>
+    This example demonstrates a simple Playwright test framework structure using the Page Object Model (POM) to test a login feature.
+  </p>
+
+  <h3>1. Project Structure</h3>
+  <pre><code>
+playwright-login/
+├── tests/
+│   └── login.spec.js
+├── pages/
+│   └── LoginPage.js
+├── data/
+│   └── credentials.json
+├── playwright.config.js
+├── package.json
+  </code></pre>
+
+  <h3>2. Page Object – LoginPage.js</h3>
+  <pre><code>
+class LoginPage {
+  constructor(page) {
+    this.page = page;
+    this.username = page.locator('#username');
+    this.password = page.locator('#password');
+    this.loginBtn = page.locator
+	('button[type=submit]');
+  }
+
+  async goto() {
+    await this.page.goto('https://example.com/login');
+  }
+
+  async login(user, pass) {
+    await this.username.fill(user);
+    await this.password.fill(pass);
+    await this.loginBtn.click();
+  }
+}
+module.exports = { LoginPage };
+  </code></pre>
+
+  <h3>3. Test File – login.spec.js</h3>
+  <pre><code>
+const { test, expect } = require('@playwright/test');
+const { LoginPage } = require('../pages/LoginPage');
+const data = require('../data/credentials.json');
+
+for (const { username, password } of data) {
+  test(`Login test for ${username}`, async ({ page }) 
+    =&gt; {
+    const login = new LoginPage(page);
+    await login.goto();
+    await login.login(username, password);
+    await expect(page).toHaveURL(/dashboard/);
+  });
+}
+  </code></pre>
+
+  <h3>4. Test Data – credentials.json</h3>
+  <pre><code>
+[
+  { "username": "user1", "password": "pass1" },
+  { "username": "user2", "password": "pass2" }
+]
+  </code></pre>
+
+  <h3>5. Run the Tests</h3>
+  <pre><code>npx playwright test</code></pre>
+
+  <p>
+    This small framework can be extended to other modules like registration, search, dashboard, etc.
+  </p>
+
+  <h3>Resources & Further Learning</h3>
+  <p>
+    Here are some official and community-driven resources to go deeper with Playwright:
+  </p>
+
+  <h3>Official Documentation</h3>
+  <ul>
+    <li><a href="https://playwright.dev" target="_blank">Playwright Official Website</a></li>
+    <li><a href="https://playwright.dev/docs/test-intro" target="_blank">Getting Started Guide</a></li>
+    <li><a href="https://playwright.dev/docs/api/class-test" target="_blank">Playwright Test API</a></li>
+  </ul>
+
+  <h3>Core Features of Playwright </h3>
+  <ul>
+    <li>Auto-waiting and retries</li>
+    <li>Powerful selectors (text, CSS, XPath, role)</li>
+    <li>Headless and headed execution</li>
+    <li>Built-in test generator</li>
+  </ul>
+
+  <h3>Advanced Usage of Playwright</h3>
+  <ul>
+    <li>Parallel and sharded test execution</li>
+    <li>Taking screenshots and video recording</li>
+    <li>Running tests in CI environments</li>
+    <li>Using Playwright with Jest, Mocha or Cucumber</li>
+  </ul>
+
+  <h3>Pro Tips</h3>
+  <ul>
+    <li>Use test fixtures for login and setup</li>
+    <li>Use <code>playwright.config.js</code> for environment settings</li>
+    <li>Debug tests using <code>PWDEBUG=1</code> mode</li>
+  </ul>
+
+  <h3>Real-World Use</h3>
+  <ul>
+    <li>Testing form workflows and validation</li>
+    <li>Validating UI components like modals and carousels</li>
+    <li>Running cross-browser regression tests</li>
+  </ul>
+ 
+  
+</main>
+
+<div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a> |
+  <a href="cookies.html">Cookies</a>
+</div>
+
+</body>
+</html>

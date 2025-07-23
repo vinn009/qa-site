@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using JIRA for QA and Test Management – QaShift</title>
+  <meta name="description" content="Learn how QA teams use JIRA for test case tracking, bug reporting, dashboards, and Agile sprint planning. Ideal for beginners and professionals." />
+  <meta name="keywords" content="JIRA for QA, bug tracking, test management in JIRA, QA workflows, Agile JIRA, sprint planning, JIRA dashboard" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+   header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+	 nav {
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .footer {
+        font-size: 0.8rem;
+      }
+      .footer a {
+        display: inline-block;
+        margin: 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Using JIRA for QA</h1>
+  <nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<main>
+  <h3>What is JIRA</h3>
+  <ul>
+    <li>JIRA is one of the most popular issue-tracking and project-management tools.</li>
+    <li>Supports Agile frameworks like Scrum and Kanban.</li>
+    <li>Helps teams organize tasks, bugs, stories, and test cases in one place.</li>
+    <li>Integrates well with other tools like Bitbucket, Confluence, and Xray.</li>
+  </ul>
+
+  <h3>How to Access JIRA</h3>
+  <ul>
+    <li>Usually your company will provide a JIRA URL (like <code>https://companyname.atlassian.net</code>)</li>
+    <li>Log in with your corporate email or assigned credentials</li>
+    <li>You will land on the default dashboard showing your assigned tasks</li>
+    <li>Use the top navigation bar to switch between projects and boards</li>
+  </ul>
+
+  <h3>How to Create Issues (Bug/Story/Task) in JIRA</h3>
+  <ul>
+    <li>Click the <strong>Create</strong> button on the top bar</li>
+    <li>Select the Project where the issue should live</li>
+    <li>Choose the Issue Type (Story, Task, Bug, Epic, etc.)</li>
+    <li>Fill in required fields like Summary, Description, Priority, Assignee</li>
+    <li>Attach screenshots if needed</li>
+    <li>Click <strong>Create</strong> to submit</li>
+  </ul>
+
+  <h3>How to Create Test Cases in JIRA (with Xray)</h3>
+  <ul>
+    <li>Install Xray plugin (if not already installed)</li>
+    <li>Click the <strong>Create</strong> button</li>
+    <li>Choose Issue Type as <strong>Test</strong></li>
+    <li>Provide Test Steps with input, action, and expected result</li>
+    <li>Link the test to requirements or user stories</li>
+    <li>Save the test case</li>
+  </ul>
+
+  <h3>How to Create a Test Plan in JIRA (Xray)</h3>
+  <ul>
+    <li>Click <strong>Create</strong> → select Issue Type as <strong>Test Plan</strong></li>
+    <li>Add a summary and description</li>
+    <li>Link existing test cases to the plan</li>
+    <li>Assign testers and define schedules</li>
+    <li>Save the test plan</li>
+  </ul>
+
+  <h3>Executing Test Cases in JIRA (Xray)</h3>
+  <ul>
+    <li>Create a <strong>Test Execution</strong> issue in JIRA</li>
+    <li>Link the tests you want to run</li>
+    <li>Assign it to a tester</li>
+    <li>As tests are executed, update their status (Pass/Fail) and add evidence</li>
+    <li>Xray captures and reports these results in dashboards</li>
+  </ul>
+
+  <h3>What is JIRA Xray?</h3>
+  <p>
+    Xray is a powerful test management plugin for JIRA that adds features to plan, organize,
+    execute, and report on manual or automated tests inside JIRA. It supports:
+  </p>
+  <ul>
+    <li>Manual test execution and tracking</li>
+    <li>Automated results import</li>
+    <li>Traceability from requirements to test execution</li>
+    <li>Test coverage and reporting dashboards</li>
+  </ul>
+
+  <h3>Importing and Exporting Test Cases & Test Plans</h3>
+  <ul>
+    <li>Use JIRA’s built-in CSV import/export features</li>
+    <li>In Xray, use Excel or JSON importers for test cases</li>
+    <li>Always verify field mappings before import to avoid data loss</li>
+    <li>For large data, test with a small sample first</li>
+    <li>Export test executions and plans using Xray's reports (Excel/CSV/PDF)</li>
+  </ul>
+
+  <h3>Pro Tips</h3>
+  <ul>
+    <li>Learn JQL (JIRA Query Language) to create advanced filters</li>
+    <li>Use components and versions for better organization</li>
+    <li>Clean up unused or duplicate issues regularly</li>
+    <li>Customize workflows to match your team’s process</li>
+  </ul>
+
+  <h3>Common Mistakes to Avoid</h3>
+  <ul>
+    <li>Leaving issues in unclear status (like “To Do” forever)</li>
+    <li>Forgetting to update test results after execution</li>
+    <li>Overcomplicating workflows with too many transitions</li>
+    <li>Neglecting to link tests to user stories for traceability</li>
+  </ul>
+    <h3>Pro Tips</h3>
+  <ul>
+    <li>Use filters for faster tracking of QA issues</li>
+    <li>Group bugs by components for easy triage</li>
+    <li>Make use of labels like "regression", "critical", "UI" for test coverage tagging</li>
+    <li>Link issues to Confluence documentation for traceability</li>
+  </ul>
+
+  <h3>Recommendations</h3>
+  <ul>
+    <li>Practice real-world workflows using a demo JIRA instance</li>
+    <li>Use keyboard shortcuts in JIRA to improve efficiency</li>
+    <li>Maintain consistent naming and priority schemes across the team</li>
+  </ul>
+
+  <h3>Certifications for JIRA</h3>
+  <ul>
+    <li><a href="https://www.atlassian.com/university/certification" target="_blank">Atlassian Certified Professional (ACP)</a></li>
+  </ul>
+
+</main>
+<div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a> |
+  <a href="cookies.html">Cookies</a>
+</div>
+
+</body>
+</html>

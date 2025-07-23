@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QA Testing Definitions – QaShift</title>
+  <meta name="description" content="Explore 100+ software testing definitions covering manual, automation, agile, tools, and QA terminology. Clear and beginner-friendly." />
+  <meta name="keywords" content="QA definitions, software testing glossary, test terms, QA concepts, automation terms, testing dictionary" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+    header {
+      background: #f0f0f0;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+	nav {
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .footer {
+        font-size: 0.8rem;
+      }
+      .footer a {
+        display: inline-block;
+        margin: 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>QA Testing Definations</h1>
+ <nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </header>
+
+  <main>
+  <body>
+<section>
+  <h3>1. Unit Testing</h3>
+  <p>Unit Testing is a software testing method in which individual components or functions of a program are tested in isolation. It is typically performed by developers to ensure that specific modules behave correctly as per requirements.</p>
+  <p>Unit tests are written using frameworks like JUnit, NUnit, or TestNG. The goal is to catch bugs early and ensure code correctness at a granular level.</p>
+  <ul>
+    <li>Example: Testing a function that calculates tax by feeding fixed inputs and verifying the output.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>2. Integration Testing</h3>
+  <p>Integration Testing checks the interaction between different software modules after they have been unit tested. This testing ensures that modules work together as expected when combined.</p>
+  <p>It uncovers issues such as incorrect data exchange, logic mismatch, or integration errors between modules. Techniques include Top-Down, Bottom-Up, and Big Bang.</p>
+  <ul>
+    <li>Example: Testing the integration of the login module with the user database and session system.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>3. System Testing</h3>
+  <p>System Testing validates the complete and integrated software system against specified requirements. It simulates real-world use and is typically conducted by the QA team in an environment similar to production.</p>
+  <p>This is a high-level testing phase where functionality, performance, security, and other aspects are checked together.</p>
+  <ul>
+    <li>Example: Testing the entire workflow of an e-commerce site from login to checkout.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>4. Smoke Testing</h3>
+  <p>Smoke Testing is a preliminary test performed to check the basic functionality of an application. It acts like a "sanity check" to determine whether a new build is stable enough for deeper testing.</p>
+  <p>This testing is shallow and wide, focusing on critical features only.</p>
+  <ul>
+    <li>Example: Verifying that login, search, and cart features work in a new build.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>5. Sanity Testing</h3>
+  <p>Sanity Testing is a quick test focused on verifying specific functionalities after minor code changes or bug fixes. It ensures that recent changes have not affected the intended area.</p>
+  <p>It is usually narrow and deep in scope, unlike smoke testing.</p>
+  <ul>
+    <li>Example: Checking only the checkout module after fixing a payment issue.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>6. Regression Testing</h3>
+  <p>Regression Testing involves re-running previously passed test cases to confirm that recent changes haven't introduced new bugs or broken existing functionality.</p>
+  <p>This is critical in agile development where frequent changes are common.</p>
+  <ul>
+    <li>Example: Re-testing user registration after adding new form validations.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>7. Functional Testing</h3>
+  <p>Functional Testing ensures the application behaves according to the defined functional requirements. It validates that each function of the software performs its task correctly.</p>
+  <p>This testing is typically black-box based and focuses on user interactions and outputs.</p>
+  <ul>
+    <li>Example: Verifying if the search bar returns accurate results when a user types a query.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>8. Non-Functional Testing</h3>
+  <p>Non-Functional Testing evaluates attributes such as performance, usability, reliability, and scalability. It ensures the software's quality under various conditions beyond functional correctness.</p>
+  <p>This helps improve user experience and system efficiency.</p>
+  <ul>
+    <li>Example: Measuring how fast the system responds under a load of 500 users.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>9. Usability Testing</h3>
+  <p>Usability Testing measures how user-friendly, efficient, and pleasant the software is for real users. It focuses on improving user experience and identifying navigational or design issues.</p>
+  <p>Feedback is gathered from users through observation and interviews.</p>
+  <ul>
+    <li>Example: Watching users attempt to place an order and identifying where they get stuck.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>10. Acceptance Testing</h3>
+  <p>Acceptance Testing is performed by end users or clients to validate that the system meets their expectations and business needs. It usually occurs before the final release of the product.</p>
+  <p>It confirms that the delivered system is ready for production use.</p>
+  <ul>
+    <li>Example: A client using the invoicing module to ensure all financial reports generate correctly.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>11. Alpha Testing</h3>
+  <p>Alpha Testing is a type of acceptance testing performed by internal employees or testers before releasing the product to actual users. It helps catch bugs early and collect internal feedback.</p>
+  <p>This is done in a controlled development environment.</p>
+  <ul>
+    <li>Example: Developers test a mobile app in-house for usability and stability.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>12. Beta Testing</h3>
+  <p>Beta Testing involves releasing the software to a limited number of external users for real-world feedback. It helps identify unexpected bugs and collect usability insights before a full launch.</p>
+  <p>Feedback from beta testers often leads to final improvements.</p>
+  <ul>
+    <li>Example: A company releasing an early version of its new app to 200 selected users.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>13. Exploratory Testing</h3>
+  <p>Exploratory Testing is an informal testing approach where testers explore the application without predefined scripts. Testers use their experience, intuition, and creativity to find bugs.</p>
+  <p>This technique is useful for quickly discovering unexpected issues.</p>
+  <ul>
+    <li>Example: Navigating through an app randomly to identify UI glitches or crashes.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>14. Ad-Hoc Testing</h3>
+  <p>Ad-Hoc Testing is an unstructured and informal method of testing where the objective is to find defects by randomly using the application. It does not follow any test plan or documentation.</p>
+  <p>This is often done when there is limited time or documentation available.</p>
+  <ul>
+    <li>Example: Typing random characters into a form field to test for input handling issues.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>15. Performance Testing</h3>
+  <p>Performance Testing evaluates how well an application performs under expected workloads. It checks speed, responsiveness, and stability during peak usage.</p>
+  <p>This ensures the system can handle the expected traffic and data volume.</p>
+  <ul>
+    <li>Example: Simulating 1,000 users logging in simultaneously to check response time.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>16. Load Testing</h3>
+  <p>Load Testing is a type of performance testing where the system is subjected to a specific load to determine its behavior under normal and peak conditions.</p>
+  <p>The goal is to identify bottlenecks and ensure consistent performance.</p>
+  <ul>
+    <li>Example: Applying a load of 500 orders/hour to an e-commerce checkout system.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>17. Stress Testing</h3>
+  <p>Stress Testing evaluates the system’s ability to maintain functionality under extreme or beyond-limit conditions. It helps determine the system's breaking point.</p>
+  <p>This ensures the system fails gracefully under heavy load.</p>
+  <ul>
+    <li>Example: Flooding the server with 10,000 login requests in 2 minutes.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>18. Volume Testing</h3>
+  <p>Volume Testing, also known as flood testing, checks how the system handles a large volume of data. It ensures the application performs well when handling vast datasets.</p>
+  <p>This is especially important for database-heavy applications.</p>
+  <ul>
+    <li>Example: Importing 1 million product entries into the system and observing performance.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>19. Security Testing</h3>
+  <p>Security Testing ensures that the application is protected from external threats and data breaches. It validates authentication, authorization, encryption, and session management.</p>
+  <p>This protects sensitive user data and avoids compliance issues.</p>
+  <ul>
+    <li>Example: Testing for SQL injection vulnerabilities in login forms.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>20. Compatibility Testing</h3>
+  <p>Compatibility Testing checks whether the application works across different browsers, devices, operating systems, and networks. This ensures a consistent experience for all users.</p>
+  <p>It identifies rendering issues, layout bugs, or platform-specific errors.</p>
+  <ul>
+    <li>Example: Testing an app on Chrome, Safari, and Firefox across iOS and Android devices.</li>
+  </ul>
+</section>
+<section>
+  <h3>21. Scalability Testing</h3>
+  <p>Scalability Testing evaluates the system's ability to handle growth—in users, transactions, or data volume—without performance degradation. It is essential for systems expected to grow over time.</p>
+  <p>This testing helps identify how much the system can scale before upgrades or redesigns are necessary.</p>
+  <ul>
+    <li>Example: Testing how performance changes as the user base increases from 1,000 to 10,000.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>22. Recovery Testing</h3>
+  <p>Recovery Testing verifies how well the system recovers after unexpected failures like crashes, network failures, or hardware malfunctions. It ensures the application can return to a stable state without data loss.</p>
+  <p>This testing is crucial for systems requiring high availability and reliability.</p>
+  <ul>
+    <li>Example: Forcefully shutting down the system during data processing and checking if recovery occurs automatically.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>23. Maintainability Testing</h3>
+  <p>Maintainability Testing assesses how easily a system can be modified to fix defects, add new features, or improve performance. It also evaluates code clarity and modularity.</p>
+  <p>Maintainable systems reduce long-term development costs and simplify future updates.</p>
+  <ul>
+    <li>Example: Checking how easily a developer can identify and fix a bug in the codebase.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>24. Accessibility Testing</h3>
+  <p>Accessibility Testing ensures the application is usable by people with disabilities, including vision, hearing, and motor impairments. It often involves screen readers, keyboard navigation, and color contrast checks.</p>
+  <p>This type of testing supports legal compliance and inclusivity.</p>
+  <ul>
+    <li>Example: Verifying that screen reader software can read out all menu items and labels.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>25. Usability Testing</h3>
+  <p>Usability Testing is conducted to evaluate how intuitive and user-friendly the application is. Testers observe real users interacting with the product to identify confusion or inefficiencies.</p>
+  <p>The aim is to refine the user interface and improve user satisfaction.</p>
+  <ul>
+    <li>Example: Observing users as they complete a sign-up process and identifying where they get stuck.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>26. Compliance Testing</h3>
+  <p>Compliance Testing ensures the application adheres to external regulations, standards, or legal requirements. It is often required in domains like healthcare, finance, and telecommunications.</p>
+  <p>This protects organizations from fines and legal consequences.</p>
+  <ul>
+    <li>Example: Verifying that a healthcare app complies with HIPAA regulations.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>27. Localization Testing</h3>
+  <p>Localization Testing checks whether the application functions and displays correctly in a specific language and cultural context. This includes formatting of dates, currencies, and translations.</p>
+  <p>It ensures a seamless experience for users in different regions.</p>
+  <ul>
+    <li>Example: Checking if the German version of a shopping site correctly uses the € symbol and local spelling.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>28. Internationalization Testing</h3>
+  <p>Internationalization Testing ensures that an application is built to support multiple languages and locales without code changes. It validates infrastructure readiness for translation and regional formats.</p>
+  <p>This is a prerequisite to successful localization.</p>
+  <ul>
+    <li>Example: Testing that a UI layout adjusts properly when switching from English to Arabic.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>29. Installation Testing</h3>
+  <p>Installation Testing checks the installation, upgrade, and uninstallation processes of a software application. It ensures that the setup process is smooth, reliable, and error-free.</p>
+  <p>This helps users get started without technical issues.</p>
+  <ul>
+    <li>Example: Verifying that a desktop application installs correctly on both Windows and macOS platforms.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>30. Configuration Testing</h3>
+  <p>Configuration Testing evaluates how the application behaves with different combinations of hardware, software, networks, or environments. It ensures the app works in a variety of setups.</p>
+  <p>This is essential for cross-platform or enterprise-grade applications.</p>
+  <ul>
+    <li>Example: Running tests on Windows 10 with Chrome, Firefox, and Edge browsers.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>31. Mobile Testing</h3>
+  <p>Mobile Testing focuses on validating software applications designed for mobile devices like smartphones and tablets. It checks for usability, responsiveness, performance, and compatibility across devices.</p>
+  <p>Mobile apps require special attention due to diverse OS versions, screen sizes, and hardware.</p>
+  <ul>
+    <li>Example: Testing a mobile banking app on Android 11 and iOS 16 devices.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>32. Cross-Browser Testing</h3>
+  <p>Cross-Browser Testing ensures that web applications display and function consistently across multiple browsers. Different browsers may interpret HTML, CSS, and JavaScript differently.</p>
+  <p>This testing helps deliver a uniform user experience.</p>
+  <ul>
+    <li>Example: Checking layout alignment on Chrome, Safari, Firefox, and Edge browsers.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>33. Data-Driven Testing</h3>
+  <p>Data-Driven Testing is an automated testing method where test scripts are executed with multiple sets of input data. It separates test logic from test data for efficiency and reusability.</p>
+  <p>This approach helps achieve broad test coverage with fewer scripts.</p>
+  <ul>
+    <li>Example: Verifying a login feature with 100 sets of usernames and passwords from an Excel sheet.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>34. Keyword-Driven Testing</h3>
+  <p>Keyword-Driven Testing uses high-level keywords to represent test steps in a spreadsheet or external file. These keywords are mapped to code functions in the automation framework.</p>
+  <p>This method allows non-programmers to create tests without writing code.</p>
+  <ul>
+    <li>Example: Using a keyword like “ClickButton” in an Excel row to trigger a button click in Selenium.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>35. Manual Testing</h3>
+  <p>Manual Testing involves testers executing test cases manually without using automation tools. It is essential for exploratory, usability, and ad-hoc testing where human intuition is key.</p>
+  <p>Though time-consuming, manual testing remains important for UI/UX evaluations and complex scenarios.</p>
+  <ul>
+    <li>Example: Manually checking how a user navigates through an online booking system.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>36. Automated Testing</h3>
+  <p>Automated Testing uses scripts and tools to execute test cases automatically. It accelerates regression, functional, and performance testing and reduces human error.</p>
+  <p>Popular tools include Selenium, Playwright, Cypress, and JUnit.</p>
+  <ul>
+    <li>Example: Running a nightly suite of Selenium tests on a CI/CD server.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>37. Continuous Testing</h3>
+  <p>Continuous Testing is the practice of running automated tests throughout the software development lifecycle, particularly within CI/CD pipelines. It ensures that defects are caught early and software is always releasable.</p>
+  <p>This supports agile and DevOps practices by enabling fast feedback loops.</p>
+  <ul>
+    <li>Example: Running tests automatically every time new code is pushed to GitHub.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>38. Headless Testing</h3>
+  <p>Headless Testing runs browser-based tests without opening a visible UI. It is useful for speeding up execution in CI environments and saving system resources.</p>
+  <p>Headless browsers like Chrome Headless or Playwright Headless are commonly used.</p>
+  <ul>
+    <li>Example: Using Chrome in headless mode to run login tests on a Linux server.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>39. API Testing</h3>
+  <p>API Testing validates the functionality, reliability, performance, and security of Application Programming Interfaces (APIs). It involves sending requests to endpoints and verifying responses.</p>
+  <p>Tools like Postman, REST Assured, and SoapUI are commonly used.</p>
+  <ul>
+    <li>Example: Sending a POST request to the user creation API and verifying a 201 Created response.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>40. UI Testing</h3>
+  <p>UI Testing, or User Interface Testing, checks the visual elements of an application such as buttons, menus, and layouts. It ensures they appear and function as intended across devices and browsers.</p>
+  <p>This testing focuses on visual consistency, alignment, and responsiveness.</p>
+  <ul>
+    <li>Example: Verifying that the login button remains visible and clickable on all screen sizes.</li>
+  </ul>
+</section>
+<section>
+  <h3>41. Code Coverage Testing</h3>
+  <p>Code Coverage Testing measures how much of the source code is exercised by the test suite. It helps identify untested parts of the application and improve test completeness.</p>
+  <p>Metrics include line coverage, branch coverage, and function coverage.</p>
+  <ul>
+    <li>Example: Using a tool like JaCoCo to measure what percentage of methods in a Java class are tested.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>42. Static Testing</h3>
+  <p>Static Testing involves examining the software's code or documentation without executing the program. It aims to detect errors early in the development process using reviews, walkthroughs, and inspections.</p>
+  <p>This type of testing helps catch issues like syntax errors, coding standard violations, and poor design.</p>
+  <ul>
+    <li>Example: Reviewing source code to ensure that variables are declared before use.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>43. Dynamic Testing</h3>
+  <p>Dynamic Testing evaluates software by executing code to validate functionality and behavior. It detects issues like logic errors, integration faults, and unexpected output during runtime.</p>
+  <p>This is the most common form of testing and includes unit, system, and acceptance testing.</p>
+  <ul>
+    <li>Example: Executing test cases against a login page to verify user authentication flow.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>44. Boundary Value Testing</h3>
+  <p>Boundary Value Testing focuses on checking values at the edge of input ranges, where defects often occur. It helps uncover off-by-one errors and input handling issues.</p>
+  <p>This technique is especially useful in numeric or range-based input fields.</p>
+  <ul>
+    <li>Example: If an input accepts ages 18–60, tests would include 17, 18, 60, and 61.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>45. Equivalence Partitioning</h3>
+  <p>Equivalence Partitioning divides input data into valid and invalid partitions. Test cases are derived from each group to reduce the total number of tests while maintaining coverage.</p>
+  <p>This method avoids redundant test cases by grouping similar inputs.</p>
+  <ul>
+    <li>Example: For a form that accepts ages 18–60, valid group = 30, invalid groups = 10, 70.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>46. Decision Table Testing</h3>
+  <p>Decision Table Testing is a technique used to test different input combinations and their corresponding outputs. It is especially useful in applications with complex business logic or rules.</p>
+  <p>Each column in the table represents a unique test scenario based on conditions and actions.</p>
+  <ul>
+    <li>Example: Testing a loan approval system where decisions depend on income and credit score values.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>47. State Transition Testing</h3>
+  <p>State Transition Testing checks how the system transitions from one state to another based on inputs. It is ideal for systems where behavior changes depending on current conditions or events.</p>
+  <p>This approach uses state diagrams or tables to design test cases.</p>
+  <ul>
+    <li>Example: Testing ATM operations like Insert Card → Enter PIN → Withdraw Cash → Eject Card.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>48. Use Case Testing</h3>
+  <p>Use Case Testing involves designing test cases based on user interactions or workflows. It helps validate real-life user scenarios from start to finish.</p>
+  <p>This technique ensures that the application supports user goals as intended.</p>
+  <ul>
+    <li>Example: A user creating an account, adding items to a cart, and completing a purchase.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>49. Error Guessing</h3>
+  <p>Error Guessing is a technique where testers use experience and intuition to identify problematic areas in the application. It does not rely on formal test design techniques.</p>
+  <p>This method is often used after formal testing to uncover hidden defects.</p>
+  <ul>
+    <li>Example: Trying to submit a form without entering required fields to see if it throws an error.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>50. Pairwise Testing</h3>
+  <p>Pairwise Testing is a combinatorial testing technique where all possible discrete combinations of pairs of input parameters are tested. It helps achieve maximum coverage with minimal test cases.</p>
+  <p>This method is ideal for reducing the number of tests in complex input scenarios.</p>
+  <ul>
+    <li>Example: Testing three fields (OS, browser, language) by ensuring every pair (e.g., Chrome + English) is covered at least once.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>51. Orthogonal Array Testing</h3>
+  <p>Orthogonal Array Testing is a statistical method used to generate test cases with maximum coverage using minimal combinations. It is useful for complex systems with multiple parameters.</p>
+  <p>This structured approach improves test efficiency and defect detection rate.</p>
+  <ul>
+    <li>Example: Testing multiple car models with various fuel types and transmissions using an orthogonal matrix.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>52. Model-Based Testing</h3>
+  <p>Model-Based Testing creates test cases from models that represent the desired behavior of the system. These models may include state machines, flowcharts, or activity diagrams.</p>
+  <p>It ensures that tests reflect both structure and dynamic interactions of the application.</p>
+  <ul>
+    <li>Example: Generating tests from a login workflow modeled using a state diagram.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>53. Cause-Effect Graphing</h3>
+  <p>Cause-Effect Graphing is a technique that maps causes (input conditions) to effects (output actions). The graph is then converted into a decision table for test case generation.</p>
+  <p>It is especially helpful for testing complex logic with multiple inputs and conditions.</p>
+  <ul>
+    <li>Example: Testing insurance premium calculations based on age, location, and vehicle type.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>54. Mutation Testing</h3>
+  <p>Mutation Testing checks the effectiveness of existing test cases by making small changes (mutations) to the code. If tests fail for the mutated code, they are considered strong. If they pass, test gaps exist.</p>
+  <p>It helps assess the quality and robustness of test suites.</p>
+  <ul>
+    <li>Example: Changing a `>` to `>=` in a condition and checking if tests detect the error.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>55. Error Seeding</h3>
+  <p>Error Seeding involves deliberately adding known bugs to the software to evaluate the efficiency of the testing process. The number of seeded bugs found is used to estimate how many real bugs may remain.</p>
+  <p>This method provides insights into test coverage and team effectiveness.</p>
+  <ul>
+    <li>Example: Adding three known defects and checking if testers identify them during manual testing.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>56. Visual Testing</h3>
+  <p>Visual Testing ensures that the graphical interface of an application appears correctly and consistently. It compares UI screenshots pixel-by-pixel to detect misalignment or rendering issues.</p>
+  <p>This technique is widely used in responsive and cross-browser design validation.</p>
+  <ul>
+    <li>Example: Using tools like Percy or Applitools to detect layout shifts between versions.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>57. Snapshot Testing</h3>
+  <p>Snapshot Testing captures the output of components (especially UI) and compares them against a stored snapshot. If the current output differs, the test fails, indicating changes in appearance or behavior.</p>
+  <p>It is commonly used in frontend frameworks like React.</p>
+  <ul>
+    <li>Example: Verifying that a React component's UI hasn't changed unexpectedly after a code change.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>58. Assertion Testing</h3>
+  <p>Assertion Testing validates outcomes by using assertions—statements that check whether a condition is true. Assertions are used throughout test scripts to confirm expected vs. actual behavior.</p>
+  <p>This is a core element of automated testing frameworks like JUnit, TestNG, or PyTest.</p>
+  <ul>
+    <li>Example: Asserting that the result of a search function returns 10 items.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>59. Mocking</h3>
+  <p>Mocking involves simulating components or external systems that are not yet available or are difficult to use during testing. It enables testers to isolate the unit under test.</p>
+  <p>Mocks are essential in unit and integration testing to mimic dependencies.</p>
+  <ul>
+    <li>Example: Mocking a payment gateway while testing the checkout process.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>60. Stubbing</h3>
+  <p>Stubbing is a technique where simplified implementations of functions or modules are used in place of the real ones. It helps isolate test logic and control the behavior of external dependencies.</p>
+  <p>Stubs often return hardcoded values to simulate specific conditions.</p>
+  <ul>
+    <li>Example: Using a stubbed API response to test how the UI handles successful data fetch.</li>
+  </ul>
+</section>
+<section>
+  <h3>61. Driver Script</h3>
+  <p>A driver script is a central control file in automated testing that calls various test scripts and components. It manages the flow of execution and handles input, output, and logging.</p>
+  <p>This is especially useful in data-driven or modular frameworks.</p>
+  <ul>
+    <li>Example: A Selenium driver script that reads input from Excel and calls test modules accordingly.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>62. Test Harness</h3>
+  <p>A test harness is a collection of test data, scripts, and utilities used to automate the testing process. It provides a consistent testing environment and reports results for validation.</p>
+  <p>It often includes drivers and stubs to simulate missing components.</p>
+  <ul>
+    <li>Example: A custom framework that simulates API responses to test frontend functionality.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>63. Test Data</h3>
+  <p>Test data consists of input values used during test execution to verify software behavior. It can be static, generated, or fetched from external files, and is crucial for meaningful test cases.</p>
+  <p>Managing test data effectively improves test accuracy and repeatability.</p>
+  <ul>
+    <li>Example: Using multiple user credentials to test different roles in a login system.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>64. Bug Report</h3>
+  <p>A bug report documents an issue found during testing, including steps to reproduce, expected and actual results, severity, and screenshots. Clear bug reports accelerate the debugging process.</p>
+  <p>They are typically created in tools like Jira, Bugzilla, or Azure DevOps.</p>
+  <ul>
+    <li>Example: A bug report detailing that the "Submit" button doesn’t trigger any action in Safari browser.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>65. Defect Life Cycle</h3>
+  <p>The defect life cycle describes the stages a bug goes through—from identification to closure. Common stages include New, Assigned, In Progress, Fixed, Retested, and Closed.</p>
+  <p>Managing this cycle ensures traceability and accountability of defects.</p>
+  <ul>
+    <li>Example: A bug goes from “New” to “Fixed” after the developer resolves the issue, then “Closed” after retesting.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>66. Test Plan</h3>
+  <p>A test plan is a formal document outlining the strategy, scope, resources, schedule, and deliverables for the testing process. It serves as a blueprint for how testing will be conducted.</p>
+  <p>It ensures clarity among teams and aligns testing with project goals.</p>
+  <ul>
+    <li>Example: A test plan that includes testing timelines, tools, responsibilities, and risk mitigation plans.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>67. Test Case</h3>
+  <p>A test case defines a specific input, execution condition, and expected result used to verify a particular software feature. It includes steps to follow, data to input, and outcomes to validate.</p>
+  <p>Well-written test cases improve test coverage and reproducibility.</p>
+  <ul>
+    <li>Example: A test case for login: Enter valid username and password → Click Login → Verify homepage loads.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>68. Test Scenario</h3>
+  <p>A test scenario is a high-level description of what needs to be tested. It often represents a user story or use case and may encompass multiple test cases.</p>
+  <p>Scenarios help testers focus on the goal of the feature rather than technical steps.</p>
+  <ul>
+    <li>Example: “Verify user can place an order” may include multiple cases like login, cart, payment, and confirmation.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>69. Test Strategy</h3>
+  <p>A test strategy outlines the overall approach to testing, including test types, environments, tools, and automation plans. It is often a part of the master test plan and guides decision-making.</p>
+  <p>This ensures consistency across different teams and releases.</p>
+  <ul>
+    <li>Example: A strategy that defines the use of Selenium for regression and Postman for API testing.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>70. Test Summary Report</h3>
+  <p>The test summary report is a document generated at the end of a testing cycle. It summarizes the testing activities, results, metrics, issues, and recommendations.</p>
+  <p>This report helps stakeholders evaluate product readiness.</p>
+  <ul>
+    <li>Example: A report showing 200 test cases passed, 5 failed, and 3 critical bugs open in the current release.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>71. Severity</h3>
+  <p>Severity defines the impact of a defect on the application’s functionality or system operation. It is assigned by the tester and ranges from critical to low based on how badly the feature is broken.</p>
+  <p>Severity guides prioritization and defect triaging.</p>
+  <ul>
+    <li>Example: A crash in the payment gateway is a high-severity bug.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>72. Priority</h3>
+  <p>Priority indicates how urgently a defect should be fixed. It is typically assigned by the project or product manager based on release schedules, business needs, and impact.</p>
+  <p>Priority may differ from severity in some cases.</p>
+  <ul>
+    <li>Example: A minor typo on the homepage may have low severity but high priority before launch.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>73. Test Log</h3>
+  <p>A test log is a detailed record of test execution, capturing actions performed, environment details, results, and any anomalies encountered. Logs are vital for debugging and audit purposes.</p>
+  <p>Automation tools often generate logs automatically.</p>
+  <ul>
+    <li>Example: A Selenium log showing element not found error during UI verification.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>74. Traceability Matrix</h3>
+  <p>The traceability matrix maps requirements to their corresponding test cases to ensure all features are covered. It ensures that no requirement is missed during testing.</p>
+  <p>This matrix is also useful for impact analysis and audit trails.</p>
+  <ul>
+    <li>Example: Mapping Requirement #15 (User Profile Update) to Test Cases TC101–TC105.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>75. Build Verification Testing (BVT)</h3>
+  <p>BVT, also known as a build acceptance test or smoke test, is a subset of tests run on each new build to ensure that it is stable enough for further testing.</p>
+  <p>It provides quick feedback and avoids wasting time on broken builds.</p>
+  <ul>
+    <li>Example: Automatically checking login, dashboard, and logout on every CI pipeline build.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>76. Environment Setup</h3>
+  <p>Environment setup involves configuring hardware, software, network, and tools required to test an application. This includes operating systems, browsers, databases, and testing frameworks.</p>
+  <p>Proper setup reduces flaky test results and execution issues.</p>
+  <ul>
+    <li>Example: Installing JDK, TestNG, MySQL, and a test management tool before executing tests.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>77. Test Environment</h3>
+  <p>The test environment is a replica of the production or staging system where testing is performed. It includes the application, servers, test data, configurations, and third-party integrations.</p>
+  <p>Stable environments reduce false positives and increase test reliability.</p>
+  <ul>
+    <li>Example: Running tests on a UAT server that mirrors the production setup with masked data.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>78. CI/CD</h3>
+  <p>CI/CD (Continuous Integration/Continuous Deployment) is a DevOps practice that automates code integration, testing, and delivery. It speeds up the release process and reduces manual errors.</p>
+  <p>Testing is a key component of the CI/CD pipeline to ensure release readiness.</p>
+  <ul>
+    <li>Example: Using Jenkins to run test suites and deploy successful builds to staging automatically.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>79. Code Review</h3>
+  <p>Code review is the manual examination of code by developers to detect defects, improve quality, and share knowledge. It often occurs before testing and reduces the number of bugs caught later.</p>
+  <p>Tools like GitHub and Bitbucket simplify review processes with pull requests.</p>
+  <ul>
+    <li>Example: A senior developer reviews changes to the payment module and suggests optimizations before merging.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>80. Shift Left Testing</h3>
+  <p>Shift Left Testing refers to moving testing activities earlier in the software development lifecycle. It encourages early validation, continuous integration, and collaboration between developers and testers.</p>
+  <p>This approach helps reduce defects and shortens feedback loops.</p>
+  <ul>
+    <li>Example: Writing unit tests and reviewing requirements during the planning phase of development.</li>
+  </ul>
+</section>
+<section>
+  <h3>81. Shift Right Testing</h3>
+  <p>Shift Right Testing involves testing in the production environment or post-deployment phase. It emphasizes real-world usage, monitoring, and user feedback to uncover issues missed earlier.</p>
+  <p>This approach is useful for performance validation and A/B testing.</p>
+  <ul>
+    <li>Example: Monitoring real-time user behavior to test a newly released feature.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>82. Chaos Testing</h3>
+  <p>Chaos Testing involves deliberately injecting failures into a system to test its resilience and recovery capabilities. It helps identify weaknesses in distributed systems and cloud infrastructure.</p>
+  <p>This technique is often used in DevOps and site reliability engineering (SRE).</p>
+  <ul>
+    <li>Example: Randomly terminating microservices to ensure the system continues to function gracefully.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>83. A/B Testing</h3>
+  <p>A/B Testing is a technique to compare two versions of a webpage or feature to determine which performs better based on user behavior. It’s widely used in UI/UX optimization.</p>
+  <p>It relies on statistical analysis of real user interactions.</p>
+  <ul>
+    <li>Example: Showing half of users a blue “Buy Now” button and the other half a red one to see which converts better.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>84. Canary Testing</h3>
+  <p>Canary Testing is the practice of releasing a new version of software to a small subset of users before rolling it out to the entire user base. It minimizes risk by allowing early issue detection.</p>
+  <p>It's commonly used in continuous delivery pipelines.</p>
+  <ul>
+    <li>Example: Deploying a new search algorithm to 5% of users for feedback before full release.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>85. Smoke Testing</h3>
+  <p>Smoke Testing, also known as “build verification testing,” is a quick set of tests to check basic functionality of an application. It ensures critical paths work and the build is stable enough for deeper testing.</p>
+  <p>This testing is performed after each new build.</p>
+  <ul>
+    <li>Example: Verifying login, dashboard access, and logout features immediately after deployment.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>86. Sanity Testing</h3>
+  <p>Sanity Testing is a brief run-through to verify that a specific feature or bug fix is working as expected. It is typically performed after receiving a new software build with minor changes.</p>
+  <p>It is narrower and more focused than smoke testing.</p>
+  <ul>
+    <li>Example: Checking if the “Forgot Password” feature works after a quick patch was applied.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>87. Exploratory Testing</h3>
+  <p>Exploratory Testing involves simultaneous learning, test design, and execution without predefined test cases. It relies on the tester’s intuition and knowledge to uncover unexpected issues.</p>
+  <p>This type of testing is flexible and often uncovers edge cases.</p>
+  <ul>
+    <li>Example: Navigating through an app randomly to observe unexpected behaviors.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>88. Ad-hoc Testing</h3>
+  <p>Ad-hoc Testing is informal testing without planning or documentation. It focuses on breaking the system using random scenarios, often guided by tester creativity and past experience.</p>
+  <p>It helps find bugs that structured testing might miss.</p>
+  <ul>
+    <li>Example: Trying to upload a corrupted image file and seeing how the system reacts.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>89. Benchmark Testing</h3>
+  <p>Benchmark Testing evaluates an application’s performance against industry standards or competitors. It establishes a baseline to measure future improvements or regressions.</p>
+  <p>Common metrics include throughput, response time, and CPU usage.</p>
+  <ul>
+    <li>Example: Comparing the response time of a banking portal with that of other leading banks.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>90. Certification Testing</h3>
+  <p>Certification Testing ensures that a software product complies with industry standards and receives formal approval. It is common in domains like telecommunications, healthcare, and finance.</p>
+  <p>This testing is usually done by third-party organizations.</p>
+  <ul>
+    <li>Example: A point-of-sale (POS) system undergoing PCI DSS certification testing.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>91. Regression Testing</h3>
+  <p>Regression Testing verifies that recent code changes have not adversely affected existing functionality. It is crucial for ensuring long-term stability of software as it evolves.</p>
+  <p>Automated regression suites are ideal for frequent updates.</p>
+  <ul>
+    <li>Example: Running a full test suite after a new payment feature is added.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>92. Retesting</h3>
+  <p>Retesting is done to verify that specific defects have been fixed. Unlike regression testing, which checks surrounding areas, retesting focuses only on the failed test cases from previous runs.</p>
+  <p>This ensures the reported issue is resolved correctly.</p>
+  <ul>
+    <li>Example: After fixing a login issue, retesting that login works with correct credentials.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>93. Compatibility Testing</h3>
+  <p>Compatibility Testing checks whether an application works as expected across different browsers, devices, networks, and operating systems. It ensures a consistent experience for all users.</p>
+  <p>This is critical for web and mobile apps.</p>
+  <ul>
+    <li>Example: Ensuring a responsive design looks the same on both Android and iOS browsers.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>94. Latency Testing</h3>
+  <p>Latency Testing measures the time delay between a user action and the system’s response. It helps evaluate application responsiveness, especially in real-time systems like video conferencing apps.</p>
+  <p>This is often part of performance and load testing.</p>
+  <ul>
+    <li>Example: Measuring how fast a chat message appears after hitting “send.”</li>
+  </ul>
+</section>
+
+<section>
+  <h3>95. Load Testing</h3>
+  <p>Load Testing determines how a system behaves under expected user loads. It ensures the application can perform reliably when multiple users access it simultaneously.</p>
+  <p>This helps identify bottlenecks before production use.</p>
+  <ul>
+    <li>Example: Simulating 1,000 users placing orders at the same time on an e-commerce site.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>96. Spike Testing</h3>
+  <p>Spike Testing examines the system’s performance when sudden and extreme changes in load occur. It checks how well the system handles traffic surges or drop-offs.</p>
+  <p>This helps prepare for scenarios like flash sales or viral traffic spikes.</p>
+  <ul>
+    <li>Example: Simulating a spike from 100 to 10,000 users in under 5 minutes.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>97. Soak Testing</h3>
+  <p>Soak Testing, or endurance testing, checks how the system performs under sustained load over a long period. It identifies issues like memory leaks, database saturation, or performance degradation.</p>
+  <p>This test helps ensure long-term stability and reliability.</p>
+  <ul>
+    <li>Example: Running a video streaming service under continuous load for 24 hours.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>98. Volume Testing</h3>
+  <p>Volume Testing evaluates how the system handles large volumes of data, rather than user load. It tests the application's ability to process, store, and retrieve massive datasets efficiently.</p>
+  <p>It helps uncover issues like slow queries and data loss.</p>
+  <ul>
+    <li>Example: Importing 1 million records into a CRM system and measuring performance.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>99. End-to-End Testing</h3>
+  <p>End-to-End Testing validates complete workflows by simulating real user scenarios from start to finish. It ensures that all components of the system work together as expected.</p>
+  <p>This type of testing often involves multiple systems and integrations.</p>
+  <ul>
+    <li>Example: A user logs in, books a flight, makes payment, and receives a confirmation email.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>100. User Acceptance Testing (UAT)</h3>
+  <p>User Acceptance Testing is conducted by end users or stakeholders to validate that the system meets business requirements. It occurs at the end of the development cycle before go-live.</p>
+  <p>UAT provides the final approval for release.</p>
+  <ul>
+    <li>Example: A client tests the employee leave module to ensure it works according to their HR policies.</li>
+  </ul>
+</section>
+ </main>
+<div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a> |
+  <a href="cookies.html">Cookies</a>
+</div>
+</body>
+</html>

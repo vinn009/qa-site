@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started with Playwright Test Runner – QaShift</title>
+  <meta name="description" content="A beginner-friendly guide to installing and running tests using Playwright Test Runner. Learn test writing, browser setup, and best practices." />
+  <meta name="keywords" content="Playwright test runner, Playwright tutorial, automated testing, browser automation, Playwright basics, QA tools" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+    header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    p {
+      line-height: 1.6;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.4rem;
+    }
+    .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Getting Started with Playwright</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+ <section>
+    <h2>Introduction</h2>
+    <p>Playwright is a modern open-source automation library from Microsoft used for end-to-end testing of web applications. It supports multiple browsers (Chromium, Firefox, and WebKit) and offers a powerful, fast, and reliable test automation experience.</p>
+  </section>
+
+  <section>
+    <h2>Why Choose Playwright?</h2>
+    <ul>
+      <li><strong>Cross-browser testing:</strong> Easily test across Chrome, Safari, and Firefox.</li>
+      <li><strong>Auto-waiting:</strong> Handles timing issues by waiting for elements to be ready.</li>
+      <li><strong>Headless and headed mode:</strong> Great for CI/CD and debugging.</li>
+      <li><strong>Powerful selectors:</strong> Supports text, role, CSS, XPath, and more.</li>
+      <li><strong>Network mocking:</strong> Simulate different backend responses with ease.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Installation</h2>
+    <p>Use the following command to install Playwright and its test runner:</p>
+    <pre><code>npm init playwright@latest</code></pre>
+    <p>This sets up Playwright with all required dependencies, browsers, and example tests.</p>
+  </section>
+
+  <section>
+    <h2>Writing Your First Test</h2>
+    <pre><code>import { test, expect } from '@playwright/test';
+
+  test('homepage has title and links to docs', 
+  async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+  await expect(page).toHaveTitle(/Playwright/);
+  await page.click('text=Get started');
+  await expect(page).toHaveURL(/.*docs/);
+});</code></pre>
+    <p>This simple test visits the Playwright homepage, checks the title, clicks on “Get Started” and verifies the resulting URL.</p>
+  </section>
+
+  <section>
+    <h2>Running Tests</h2>
+    <p>Run tests using the command:</p>
+    <pre><code>npx playwright test</code></pre>
+    <p>It will execute all test files matching <code>*.spec.ts</code> or <code>*.test.ts</code> in the <code>tests</code> directory.</p>
+  </section>
+
+  <section>
+    <h2>Using UI Mode</h2>
+    <p>Playwright provides a UI mode to debug tests interactively. Start it using:</p>
+    <pre><code>npx playwright test --ui</code></pre>
+    <p>This mode lets you run, pause, and inspect tests visually—perfect for debugging flaky tests.</p>
+  </section>
+
+  <section>
+    <h2>Conclusion</h2>
+    <p>Playwright makes end-to-end testing simple yet powerful. With features like auto-waiting, network mocking, and UI debugging, it’s quickly becoming a favorite for modern web app testing. If you're starting fresh or switching from Selenium, Playwright is worth exploring.</p>
+  </section>
+</main>
+
+<div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a>|
+  <a href="cookies.html">Cookies</a>
+</div>
+
+</body>
+</html>

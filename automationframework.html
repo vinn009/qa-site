@@ -1,0 +1,191 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build Automation Frameworks – QaShift</title>
+  <meta name="description" content="Step-by-step guide to building scalable automation frameworks using Selenium, TestNG, Page Object Model, and reporting tools like Extent Reports." />
+  <meta name="keywords" content="automation framework, selenium framework, test automation architecture, POM, testng, QA framework design, automation strategy" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Vinay Shenoy" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+   header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+	 nav {
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+     .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .footer {
+        font-size: 0.8rem;
+      }
+      .footer a {
+        display: inline-block;
+        margin: 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Build Automation Framework</h1>
+    <nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </nav>
+</header>
+
+
+  <main>
+    <h3>Introduction</h3>
+    <p>Automation frameworks are structured guidelines that help automate testing efficiently. A well-designed framework increases reusability, scalability, and maintainability of test scripts.</p>
+
+    <h3>Core Components of a Framework</h3>
+    <ul>
+      <li>Test Runner (e.g., JUnit, TestNG, PyTest)</li>
+      <li>Assertion Library</li>
+      <li>Driver Utility Layer</li>
+      <li>Logging and Reporting</li>
+      <li>Page Object Model or Screenplay Pattern</li>
+      <li>Test Data Management</li>
+    </ul>
+
+    <h3>Types of Frameworks</h3>
+    <ul>
+      <li>Linear Framework – Simple, record-and-playback</li>
+      <li>Modular Framework – Function-specific modules</li>
+      <li>Data-Driven Framework – Reads inputs from external files (Excel, CSV, JSON)</li>
+      <li>Keyword-Driven Framework – Uses keyword tables to define actions</li>
+      <li>Hybrid Framework – Mix of data/keyword and modular</li>
+      <li>BDD Framework – Behavior-driven using Gherkin syntax</li>
+    </ul>
+
+    <h3>Frameworks by Tool</h3>
+    <h3>Selenium</h3>
+    <ul>
+      <li>Page Object Model (POM)</li>
+      <li>TestNG + Extent Reports</li>
+      <li>Maven/Gradle for builds</li>
+    </ul>
+
+    <h3>Playwright</h3>
+    <ul>
+      <li>Test Runner with parallelism</li>
+      <li>Page fixtures and hooks</li>
+      <li>Built-in reporters (HTML, JSON)</li>
+    </ul>
+
+    <h3>Cypress</h3>
+    <ul>
+      <li>Mocha Test Runner</li>
+      <li>Custom commands and fixtures</li>
+      <li>Plugins for reporting</li>
+    </ul>
+
+    <h3>Frameworks</h3>
+    <ul>
+      <li>REST Assured with TestNG (Java)</li>
+      <li>Postman with Newman CLI</li>
+      <li>SuperTest / Frisby (JavaScript)</li>
+    </ul>
+
+    <h3>Advanced Concepts</h3>
+    <ul>
+      <li>CI/CD Integration with Jenkins, GitHub Actions, or GitLab</li>
+      <li>Dockerizing your test framework</li>
+      <li>Running tests in parallel (grid/cloud)</li>
+      <li>Retry logic and failure handling</li>
+    </ul>
+
+    <h3>Best Practices</h3>
+    <ul>
+      <li>Separate test logic from configuration</li>
+      <li>Keep test cases atomic and independent</li>
+      <li>Reuse functions, locators, and data</li>
+      <li>Write descriptive test names and logs</li>
+      <li>Automate reporting and alerting</li>
+    </ul>
+
+  </main>
+<div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a> |
+  <a href="cookies.html">Cookies</a>
+</div>
+</body>
+</html>
