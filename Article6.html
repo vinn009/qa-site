@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playwright Cheat Sheet – Quick Guide for QA Automation – QaShift</title>
+<meta name="description" content="A complete Playwright cheat sheet for testers and developers. Includes setup, commands, and code examples with simple explanations for fast automation." />
+<meta name="keywords" content="Playwright cheat sheet, Playwright automation, QA automation tools, end-to-end testing, playwright commands, playwright tutorial" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Vinay Shenoy" />	  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E890FQ34Y3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E890FQ34Y3');
+</script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+    header {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    p {
+      line-height: 1.6;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.4rem;
+    }
+    .footer {
+      border-top: 1px solid #ccc;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: #007acc;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Playwright Cheat Sheet Quick Guide</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Playwright Cheat Sheet</h1>
+  <p>Your go-to reference for Playwright automation with helpful explanations.</p>
+
+  <h2>Installation & Setup</h2>
+  <pre><code>npm init playwright@latest</code></pre>
+  <p>Installs Playwright with examples and setup wizard.</p>
+
+  <pre><code>npm install -D @playwright/test
+npx playwright install</code></pre>
+  <p>Manual install: adds Playwright and downloads browsers.</p>
+
+  <h2>Basic Test Structure</h2>
+  <pre><code>import { test, expect } from '@playwright/test';
+
+test('basic test', async ({ page }) => {
+  await page.goto('https://example.com');
+  await expect(page).toHaveTitle(/Example/);
+});</code></pre>
+  <p>Defines a test that navigates to a page and checks the title.</p>
+
+  <h2>Launching Browsers</h2>
+  <pre><code>const { chromium } = require('playwright');
+
+const browser = await chromium.launch({ headless: false });
+const context = await browser.newContext();
+const page = await context.newPage();</code></pre>
+  <p>Launches browser in visible mode, creates context and new tab.</p>
+
+  <h2>Navigating Pages</h2>
+  <pre><code>await page.goto('https://example.com');
+await page.reload();
+await page.goBack();
+await page.goForward();</code></pre>
+  <p>Performs navigation actions like reload, back, and forward.</p>
+
+  <h2>Element Interactions</h2>
+  <pre><code>await page.click('text=Login');
+await page.fill('#username', 'john');
+await page.press('#username', 'Enter');</code></pre>
+  <p>Clicks elements and simulates user input.</p>
+
+  <pre><code>await page.selectOption('select#role', 'admin');
+await page.check('#accept');
+await page.uncheck('#newsletter');</code></pre>
+  <p>Handles dropdowns and checkboxes.</p>
+
+  <h2>Assertions</h2>
+  <pre><code>await expect(page).toHaveURL(/dashboard/);
+await expect(page.locator('h1')).toContainText('Welcome');</code></pre>
+  <p>Checks page URL and text content to validate state.</p>
+
+  <h2>Selectors</h2>
+  <pre><code>page.locator('text=Login');
+page.locator('input[name="email"]');
+page.locator('[data-testid="submit"]');
+page.locator('//button[contains(text(), "Submit")]');</code></pre>
+  <p>Flexible options for locating elements via text, attributes, or XPath.</p>
+
+  <h2>Screenshots & Videos</h2>
+  <pre><code>await page.screenshot({ path: 'screenshot.png', fullPage: true });
+await page.locator('#chart').screenshot({ path: 'chart.png' });</code></pre>
+  <p>Captures full-page or element screenshots for debugging or visual validation.</p>
+
+  <h2>Waiting & Timing</h2>
+  <pre><code>await page.waitForSelector('#loaded');
+await page.waitForTimeout(3000);
+await page.locator('#submit').waitFor();</code></pre>
+  <p>Ensures elements are present or waits a set time before continuing.</p>
+
+  <h2>Test Hooks</h2>
+  <pre><code>test.beforeEach(async ({ page }) => {
+  await page.goto('https://example.com');
+});</code></pre>
+  <p>Runs this setup before every test.</p>
+
+  <h2>Configuration</h2>
+  <pre><code>import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  retries: 1,
+  use: {
+    headless: true,
+    baseURL: 'https://example.com',
+    screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
+  },
+});</code></pre>
+  <p>Default Playwright settings like retries, base URL, screenshots, and trace collection.</p>
+
+  <h2>Parallel Testing & Projects</h2>
+  <pre><code>projects: [
+  { name: 'Chromium', use: { browserName: 'chromium' } },
+  { name: 'Firefox', use: { browserName: 'firefox' } },
+]</code></pre>
+  <p>Runs the same test across multiple browsers in parallel.</p>
+
+  <h2>Debugging</h2>
+  <pre><code>PWDEBUG=1 npx playwright test</code></pre>
+  <p>Enables debug mode with step-by-step control.</p>
+
+  <pre><code>await page.pause();</code></pre>
+  <p>Pauses the test at runtime for live inspection using Playwright Inspector.</p>
+
+  <h2>API Testing</h2>
+  <pre><code>const requestContext = await request.newContext();
+const response = await requestContext.get('/api/users');
+expect(response.status()).toBe(200);</code></pre>
+  <p>Sends a request to an API endpoint and checks the response status.</p>
+
+  <h2>File Uploads & Downloads</h2>
+  <pre><code>await page.setInputFiles('input[type="file"]', 'file.txt');</code></pre>
+  <p>Simulates a file upload.</p>
+
+  <pre><code>const [ download ] = await Promise.all([
+  page.waitForEvent('download'),
+  page.click('#download-button'),
+]);
+await download.saveAs('file.zip');</code></pre>
+  <p>Waits for a file download event and saves the file locally.</p>
+
+  <h2>Useful CLI Commands</h2>
+  <pre><code>npx playwright test
+npx playwright codegen
+npx playwright show-report</code></pre>
+  <p>Run tests, auto-generate test scripts, and open test reports.</p>
+
+  <h2>Conclusion</h2>
+  <p>This cheat sheet covers the most essential Playwright commands with clear examples. Use it to build reliable, maintainable end-to-end tests.</p>
+
+</main>
+
+<div class="footer">
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="sitemap.html">Sitemap</a>|
+  <a href="cookies.html">Cookies</a>
+</div>
+
+</body>
+</html>
